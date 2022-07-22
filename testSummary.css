@@ -145,3 +145,34 @@
         transform: rotate(135deg);
     }
 }
+
+
+/* code for button */
+#moveButton a{
+    /* height: 50%; */
+    /* text-align: center; */
+    font-size: smaller;
+    text-decoration: none;
+    color: black;
+    align-items:flex-end;
+    height: 5px;
+    /* display: inline-block; */
+}
+
+
+.questionSwitchDiv{
+    background-color: rgb(174, 170, 170);
+    border-radius: 20%;
+    
+    display: flex;
+    justify-content: center;
+    /* margin-left: 0%; */
+    /* padding: 15px    ; */
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-right: 15px;
+    padding-right: 15px;
+    border: 2px solid black;
+    
+    
+}
