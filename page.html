@@ -15,7 +15,8 @@
   <link rel="stylesheet" href="/asstes/vendor/select2/css/select2.css">
   <link rel="stylesheet" href="/asstes/vendor/summernote/css/summernote-bs4.css">
   <link rel="stylesheet" href="/asstes/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="QuestionAdd.css">
+  <link rel="stylesheet" href="Css file/QuestionAdd.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <title>Add New Question</title>
 </head>
@@ -77,17 +78,18 @@
 
     </div>
 
-    <div class="col-6 pl-3" >
-      <div class="p-3" style="background-color:white;border-radius: 2%;">
+    <div class="col-6 pl-3 rounded" >
+      <div class="p-3 p-0" style="background-color:white;border-radius: 2%;">
       
         <div class=" p-0 pt-3 d-flex justify-content-between"
           style="padding-left:10px;display:flex;  flex-direction: row;">
           <div style="justify-content:left;">Options</div>
           <div style="justify-content:right;text-align: right;" class=""><a href="#" style="text-decoration:none;"
-              onclick="AddingOption()">Add Options</a></div>
+              onclick="AddOpt()" ondblclick="True_False()" id="Option_Adding">Add Options</a></div>
 
 
         </div>
+        
 
         <hr>
         <div>
@@ -98,8 +100,30 @@
             <option value="MCQ" id="MCQ">MCQ</option>
             <option value="Single_Choice" id="Single_Choice">Single_Choice</option>
             <!-- <option value="T&F">True and False</option> -->
-            <option value="True&False" id="T&F">True and False</option>
+            <option value="True&False" id="T&F">True_False</option>
+            <option value="Write_Answer">Write Answer</option>
           </select>
+        </div>
+        <br>
+        <div id="Multiple_Options">
+
+          <!-- <div style="font-weight:bold">Options</div>
+          <div class="d-flex">
+            <div style="padding:2%">
+            <input type="radio" ></div> 
+            <input type="text" class="pl-2" style="width:100%">
+            <i class="fa fa-trash p-2 bg-secondary" aria-hidden="true">
+
+            </i>
+
+            
+          </div>
+           -->
+          
+          
+          
+          
+          
         </div>
 
 
@@ -109,13 +133,13 @@
 
   </div>
 
-  <div class="row p-3 m-0 pt-2" style="padding-top: 1%;">
+  <div class="row p-3 m-0 pt-2 rounded" style="padding-top: 1%;">
     <div class="col-6  shadow-sm" style="background-color:white;border-radius: 2%;">
       <div class="p-0 pt-3 d-flex justify-content-between"
         style="padding-left:10px;display:flex;  flex-direction: row;">
         <div style="justify-content:left;">Tags</div>
-        <div style="justify-content:right;text-align: right;" class=""><a href="#" style="text-decoration:none;"
-            onclick="AddingOption()">Add Tags</a></div>
+        <div class="rounded" style="justify-content:right;text-align: right;border:1px solid black;background-color:rgb(153, 152, 152)" ><a href="#" style="color:black"class="link_Color_Black"
+           >Add Tags</a></div>
 
       </div>
       <hr>
@@ -148,6 +172,7 @@
         });
       });
     </script>
+    <script src="CS_Javascript/MCQ.js"></script>
 
 
 </body>
