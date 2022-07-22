@@ -8,15 +8,17 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <title>Hello, world!</title>
+    <script src="exam.js"></script>
   </head>
   <body>
-    <div class="container">
-        <div class="row">
-          <div class="col" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-            <div class="card">
-                <div class="card-header d-flex justify-content-between">
-                  <div><strong>Exams</strong></div> <di class="d-flex mr-1"><button class="btn btn-success btn-sm" style="background-color:  #28a745;">Create new exam</button>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm col-md">
+          <div class="card"style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <div class="card-header d-flex justify-content-between" style="font-size: 17.5px; color:212529;">
+                  <div>Exams</div> <di class="d-flex mr-1"><button class="btn btn-success btn-sm" style="background-color:  #28a745; font-size: 12px;">Create new exam</button>
                 </div>  
         
                 <div class="card-body">
@@ -24,56 +26,195 @@
                         <input type="text" class="form-control-sm" style="min-width: 281px; margin-top: 5px; background-color: transparent;" aria-label="Dollar amount (with dot and two decimal places)"placeholder="  Search">
                         <span class="input-group-text btn btn-secondary" style=" color:#444; background-color: white; margin-top: 5px;" ><i class="fa-solid fa-magnifying-glass "></i></span>
                       </div>
-                    <table class="table table-hover table-responsive table-sm" style="font-size: 14px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                        <thead>
+                      <div class="row">
+                    <div class="col-md-12">
+                      <table class="table table-hover table-responsive table-sm overflow-x overflow-y" id="paginate">
+                        <thead style="justify-content: center;">
                           <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Image</th>
                             <th scope="col">Name</th>
                             <th scope="col">Code</th>
                             <th scope="col">Total Minutes</th>
-                            <th scope="col">Exam Date</th>
-                            <th scope="col">Result</th>
-                            <th scope="col">#</th>
+                            <th scope="col"style="text-align: center;">Exam Date</th>
+                            <th scope="col" style="text-align: center;">Result</th>
+                            <th scope="col" style="text-align: center;">#</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td scope="row">3</td>
+                          <tr style="font-size: 14px;">
+                            <td scope="row">8</td>
                             <td></td>
                             <td>MCQUIZ</td>
                             <td>MCQ</td>
-                            <td>30</td>
+                            <td style="text-align: center;">30</td>
                             <td>2021-Sep-16 12:00 AM</td>
-                            <td>-</td>
-                            <td class="d-flex mr-1" ><button class="btn btn-secondary btn-sm mx-2"   style="background-color: #f8f9fa; color:#444">Questions</button><button class="btn btn-warning btn-sm">Edit</button></td>
+                            <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;"> <span class="p-3">Results</span> </button></td>
+                            <td class="d-flex mr-1" ><button class="btn btn-secondary btn-sm mx-2"   style="background-color: #f8f9fa; color:#444; font-size: 12px;">Questions</button><button class="btn btn-warning btn-sm" style="font-size: 12px;">Edit</button></td>
                           </tr>
-                          <tr>
-                            <td scope="row">2</td>
+                          <tr style="font-size: 14px;">
+                            <td scope="row">7</td>
                             <td></td>
                             <td>Gk</td>
                             <td>Gk123</td>
-                            <td>10</td>
+                            <td style="text-align: center;">10</td>
                             <td>2021-May-21 12:00 AM</td>
-                            <td>-</td>
-                            <td class="d-flex mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444">Questions</button><button class="btn btn-warning btn-sm">Edit</button></td>
+                            <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;"> <span class="p-3">Results</span> </button></td>
+                            <td class="d-flex mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;">Questions</button><button class="btn btn-warning btn-sm" style="font-size: 12px;">Edit</button></td>
                           </tr>
-                          <tr>
-                            <td scope="row">1</td>
+                          <tr style="justify-content:center; font-size: 14px;">
+                            <td scope="row">6</td>
                             <td></td>
-                            <td>Online Test</td>
-                            <td>Online123</td>
-                            <td>2</td>
+                            <td>Online</td>
+                            <td>Online</td>
+                            <td style="text-align: center;">6</td>
                             <td>2021-May-20 12:00 AM</td>
-                            <td class="d-flex mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8;">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745;;">Results</button></td>
-                            <td><button style="background-color: #f8f9fa; color:#444" class="btn btn-secondary btn-sm mx-2">Questions</button>
-                              <button class="btn btn-warning btn-sm">Edit</button></td>
+                            <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;"> <span class="p-3">Results</span> </button></td>
+                            <td class=" mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;">Questions</button><button class="btn btn-warning btn-sm" style="font-size: 12px;">Edit</button></td>
+                          </tr>
+                            <tr style="justify-content:center; font-size: 14px;">
+                              <td scope="row">5</td>
+                              <td></td>
+                              <td>Online</td>
+                              <td>Online</td>
+                              <td style="text-align: center;">5</td>
+                              <td>2021-May-20 12:00 AM</td>
+                              <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;"> <span class="p-3">Results</span> </button></td>
+                              <td class=" mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;">Questions</button><button class="btn btn-warning btn-sm" style="font-size: 12px;">Edit</button></td>
+                            </tr>
+                              <tr style="justify-content:center;font-size: 14px;">
+                                <td scope="row">4</td>
+                                <td></td>
+                                <td>Online</td>
+                                <td>Online123</td>
+                                <td style="text-align: center;">4</td>
+                                <td>2021-May-20 12:00 AM</td>
+                                <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;"> <span class="p-3">Results</span> </button></td>
+                                <td class=" mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;">Questions</button><button class="btn btn-warning btn-sm" style="font-size: 12px;">Edit</button></td>
+                                </tr>
+                                <tr style="justify-content:center; font-size: 14px;">
+                                  <td scope="row">3</td>
+                                  <td></td>
+                                  <td>Online</td>
+                                  <td>Online</td>
+                                  <td style="text-align: center;">3</td>
+                                  <td>2021-May-20 12:00 AM</td>
+                                  <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;"> <span class="p-3">Results</span> </button></td>
+                                  <td class=" mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;">Questions</button><button class="btn btn-warning btn-sm" style="font-size: 12px;">Edit</button></td>
+                                  </tr>
+                                  <tr style="justify-content:center;font-size: 14px;">
+                                    <td scope="row">2</td>
+                                    <td></td>
+                                    <td>Online</td>
+                                    <td>Online</td>
+                                    <td style="text-align: center;">2</td>
+                                    <td>2021-May-20 12:00 AM</td>
+                                    <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;"> <span class="p-3">Results</span> </button></td>
+                                    <td class=" mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;">Questions</button><button class="btn btn-warning btn-sm" style="font-size: 12px;">Edit</button></td>
+                                    </tr>
+
+
+
+
+                                    
+
+
+
+                                    
+                                    
+
+                                    
+                                    <tr style="justify-content:center; font-size: 14px;">
+                                      <td scope="row">1</td>
+                                      <td></td>
+                                      <td>Online</td>
+                                      <td>Online</td>
+                                      <td style="text-align: center;">2</td>
+                                      <td>2021-May-20 12:00 AM</td>
+                                      <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;"> <span class="p-3">Results</span> </button></td>
+                                      <td class=" mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;">Questions</button><button class="btn btn-warning btn-sm" style="font-size: 12px;">Edit</button></td>
+                                    </tr>
+                                    <tr style="font-size: 14px;">
+                                      <td scope="row">7</td>
+                                      <td></td>
+                                      <td>Gk</td>
+                                        <td>Gk123</td>
+                                        <td style="text-align: center;">10</td>
+                                        <td>2021-May-21 12:00 AM</td>
+                                        <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;"> <span class="p-3">Results</span> </button></td>
+                                        <td class="d-flex mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;">Questions</button><button class="btn btn-warning btn-sm" style="font-size: 12px;">Edit</button></td>
+                                      </tr>
+                                      <tr style="font-size: 14px;">
+                                        <td scope="row">7</td>
+                                        <td></td>
+                                        <td>Gk</td>
+                                        <td>Gk123</td>
+                                        <td style="text-align: center;">10</td>
+                                        <td>2021-May-21 12:00 AM</td>
+                                        <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;"> <span class="p-3">Results</span> </button></td>
+                                        <td class="d-flex mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;">Questions</button><button class="btn btn-warning btn-sm" style="font-size: 12px;">Edit</button></td>
+                                      </tr>
+                                      <tr style="font-size: 14px;">
+                                        <td scope="row">7</td>
+                                        <td></td>
+                                        <td>Gk</td>
+                                        <td>Gk123</td>
+                                        <td style="text-align: center;">10</td>
+                                        <td>2021-May-21 12:00 AM</td>
+                                        <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;"> <span class="p-3">Results</span> </button></td>
+                                        <td class="d-flex mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;">Questions</button><button class="btn btn-warning btn-sm" style="font-size: 12px;">Edit</button></td>
+                                      </tr>
+                                      <tr style="font-size: 14px;">
+                                        <td scope="row">7</td>
+                                        <td></td>
+                                        <td>Gk</td>
+                                        <td>Gk123</td>
+                                        <td style="text-align: center;">10</td>
+                                        <td>2021-May-21 12:00 AM</td>
+                                        <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;"> <span class="p-3">Results</span> </button></td>
+                                        <td class="d-flex mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;">Questions</button><button class="btn btn-warning btn-sm" style="font-size: 12px;">Edit</button></td>
+                                      </tr>
+                                      <tr style="font-size: 14px;">
+                                        <td scope="row">7</td>
+                                        <td></td>
+                                        <td>Gk</td>
+                                        <td>Gk123</td>
+                                        <td style="text-align: center;">10</td>
+                                        <td>2021-May-21 12:00 AM</td>
+                                        <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;"> <span class="p-3">Results</span> </button></td>
+                                        <td class="d-flex mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;">Questions</button><button class="btn btn-warning btn-sm" style="font-size: 12px;">Edit</button></td>
+                                      </tr>
+                                      <tr style="font-size: 14px;">
+                                        <td scope="row">7</td>
+                                        <td></td>
+                                        <td>Gk</td>
+                                        <td>Gk123</td>
+                                        <td style="text-align: center;">10</td>
+                                        <td>2021-May-21 12:00 AM</td>
+                                        <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;"> <span class="p-3">Results</span> </button></td>
+                                        <td class="d-flex mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;">Questions</button><button class="btn btn-warning btn-sm" style="font-size: 12px;">Edit</button></td>
+                                      </tr>
+                                      <tr style="font-size: 14px;">
+                                        <td scope="row">7</td>
+                                        <td></td>
+                                        <td>Gk</td>
+                                        <td>Gk123</td>
+                                        <td style="text-align: center;">10</td>
+                                        <td>2021-May-21 12:00 AM</td>
+                                        <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;"> <span class="p-3">Results</span> </button></td>
+                                        <td class="d-flex mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;">Questions</button><button class="btn btn-warning btn-sm" style="font-size: 12px;">Edit</button></td>
+                                      </tr>
+
+                            <!-- <td><button style="background-color: #f8f9fa; color:#444 ; font-size: 12px;" class="btn btn-secondary btn-sm mx-2">Questions</button>
+                              <button class="btn btn-warning btn-sm" style="font-size: 12px; width: 30%;">Edit</button></td> -->
                            <!--  <td class="d-flex mr-1"><button  btn-sm mx-2" style="background-color: #f8f9fa; color:#444">Questions</button><button  btn-sm">Edit</button></td> -->
                           </tr>
                          <!--   -->
                         </tbody>
                       </table> 
-                
+                    </div>
+                   </div>
+                   
                 </div>
                 <div class="card-footer d-flex justify-content-end">
                     <nav aria-label="Page navigation example">
@@ -85,12 +226,13 @@
                           <li class="page-item"><a class="page-link"style="color:#777" href="#">Last</a></li>
                         </ul>
                       </nav>
-                </div>
+                    </div>
               </div>
           </div>
         </div>
       </div>
-   
+      
+      <div id="sidebar1"></div>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
