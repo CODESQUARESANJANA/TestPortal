@@ -1,0 +1,155 @@
+ADMIN PANEL FUNCTIONALITY
+
+
+1) Home-Page:
+	It is the main Page in Admin_Portal. It having Side_Navigation_Bar which having information about:
+		1. Question Banks 
+		2. Exams held 
+		3. User Access Control 
+	
+	The Other functionalitites of the HomePage is :  
+		1. Page having Navigation_Bar and Side_Navigation_Bar
+    		2. when admin click on the toggle button right menu will open.
+    		3. In the right Side Navigation_bar there is signout button.
+    		4. click on toggle all the text will be hide only icons will visible
+
+2) Question Bank Page:
+    Question Box- 
+	1. In this page we can see questions we added.
+	2. while clicking on any question edit button we redirect to question editor page. 
+	3. Search bar is also available here we can search any question.
+		3.1 In this box you can also see what is the type of option
+		3.2 when the question created and id of question
+	4. Pagination is also available. And Admin can also decide how many Questions he/she wants to see in a single page. So it makes Admin_experience much better.
+	5. Here Admin Having '+' sign, so whenever Admin wants to create a new Question,he/she will use this '+' sign button.
+
+	+ sign Functionality :
+    		1. After clicking on '+' signed button , the new window will be open . On that page you will see the Multiple text-area :
+    			1.1 1st text-area is for Question
+    			1.2 2nd text-area is for Heading / Short information about the question.
+    		2. Admin will also have two checkboxes :
+    			2.1 1st is for related question, to show whether the question is related to the old questions or not
+    			2.2 2nd is for question active which means whether the admin whats that particular question in the exam or not
+    		3. Admin have 'Answer_type' area where he/she can easily select the type of Answer.
+			There are 4 types of Answers ADMIN can create : 
+				1. MCQ		 	: Multiple Options can be selected.
+				2. Text 	 	: Student has to write the Answer.
+				3. Single_choice	: Single Choice selection at once.
+				4. True and False 	: Whether the statement is True or False/ Correct or Not.
+     		4. With the help of 'add option' button the admin can add the textarea according to the Answer type selected.
+    		5. click on save button which is on right side of the corner will save your Question and then redirect you to the Question Bank.
+
+3) Exam Page : 
+	1. exam section layout is Designed in such a way that there is a search bar where we can search according to the name and id
+     	2. Having a pagination which redirect to last page previous page first page   
+	3. Having a question button which redirect to add question or delete   
+	4. Having a edit which redirect to exam edit modal    
+	5. Having a result button  where the result will show.
+    	6. Having a exam section layout in which there is a search bar for the question type and Id 
+	7. There is a question button when click on it will show a exam questions and edit option is also there which redirect to exam edit modal.
+
+	New Exam Button Functionalities : 
+	 	It's redirect Admin to the Exam_Creation Page.
+	 	1. having exam details for create new exam and bellow the all required fields.
+			required fields:
+			    	1. name Field
+    				2. code Field 
+					2.1 MCQ 
+					2.2 Single_Choice
+					2.3 True or False
+					2.4 Writting Answer 
+    				3. description : About the Exam.
+    				4. Total_time/Question OR total_time/Exam
+    				5. Start Date and Time
+    				6. image 
+
+		2. after that save button.
+		3. In footer section, having one link is available to go back to the Page having List of Exams.
+		
+	Edit Button Functionality : 
+		1. It's exactly looks like Exam_Creation Page.
+		2. Area where description of Exam is written is already filled up.
+		3. If admin wants to do any changes, he/she will do easily. 
+		4. With the help of save button, admin can save the changes 
+			
+    
+4) User Management Area : 
+	1. This page contain all the detail of user like:
+		1.1 Id
+		1.2 Name
+		1.3 Role
+		1.4 Email
+		1.5 Register_date
+		1.6 Status when the user had register.
+			1.6.1 Their status for active or not .
+	2. There is also two buttons for Edit and for Role 
+		2.1 using edit button Admin can edit their details.
+		2.2 With the help of role button, admin can set the roles.
+	3. There is  also a search bar so we can search by using particular field like its id .                                                                                                             There is also a add button so we can add a new user .
+	4. There is a page navigation by which  we can  simply navigate the pages.
+
+
+
+
+USER PANEL FUNCTIONALITY
+
+
+
+           1. Login Page
+                        The login Page allows User(examinee) to login to site using his/her previously created credentials.
+                        If the user has not registered he would be directed to the registration page or else he would be directed to the dashbord for viewing or attempting exams.
+                        This Page Would require the following details for authentication - 1.User Name
+                                                                                           2.User Email
+                                                                                           3.Password
+                                                                                    
+           2. Registration Page
+                        This is the second page after login which allows the user to register himself on the website.
+                        It would require the following fields - 1.First Name
+                                                                2. Last Name
+                                                                3. B.O.B(date of birth)
+                                                                4. Gender
+                                                                5. Email Address
+                                                                6. Mobile Number
+                                                                7.Password(new password and confirm password)
+                        After successful registration user would be redirected to the login page.
+
+           3.Dashboard
+                        Once a user have successfully logged in , they would be redirected to the dashboard, where the user would be able to see all the test that are created for him and the result of previously attempted test.
+                        On selection of a test from the available one's, the user would be directed to the instructions page .
+                        It would also contain all the settings relted to user profile.
+
+           4.Instructions Page
+                        This page would contain all the instruction set that the admin have provided for a test.
+                        It would also contain a checkbox saying i have read all the instructions. Until and Unless this checkbox isn't checked, the take test button would be disabled.
+
+           5. Test Page/Examination Page
+                        The next page after instructions page is the examination page. This page would be the main page of the website where the user would answer all the questions provided. The functionalities of this page would be  -  
+                                                1. Navigation Panel - from where the user would have the flexibility to switch to any question at any given point of time during the test.
+                                                2. Test Area - here, the questions, their descriptions and the options for that particular question would be displayed. The questions and their details would be dynamically appended from the api.
+                                                3.This page would also contain the following buttons for diffrent functionalities -
+                                                        a.save answer and move to next question
+                                                        b. to clear the option submitted 
+                                                        c. mark a question for review and proceed to the next question
+                                                        d. move to the previous question
+                                                        e. submit the test
+                                                4. The page would also contain a timer that would alert the user about the time left to complete the exam. When last 2 minutes would have been left, the timer would grow in size and  change text colour to red.
+                        The examinee would not be able to copy or paste contents from the page during the exam time, also the right click will be disabled on this page.
+                        On the click of submit button, the user would have a test-summary pop-up.
+
+           6.Test summary Pop-Up
+                        This pop-up will be shown on the examination page after the submission of the test to show the summary of the test like the time taken to complete the test and the no. of. questions attempted.
+                        This would also have a button that would ask the user to fill feedback form.
+
+           7. Result Page
+                        The user would be directed to this page after the pop-up and would show the result of the test that the user have taken.
+
+           8. Feedback form
+                        This page would take  the feedback from the user about his experience about the test.
+                        It wouls contain the following fields -
+                                                1. Name
+                                                2. Email
+                                                3. review
+                                                4. Overall experience
+                                                5. Timely Response
+                                                6.our support
+                                                7.Suggestions
