@@ -224,8 +224,19 @@
     <link rel="stylesheet" href="/asstes/vendor/select2/css/select2.css">
     <link rel="stylesheet" href="/asstes/vendor/summernote/css/summernote-bs4.css">
     <link rel="stylesheet" href="/asstes/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
-</head>
 
+<script>
+    function addExamData(){
+        exam_name = document.getElementById("exam_name").value;
+        exam_code = document.getElementById("exam_code").value;
+        summernote = document.getElementById("summernote").value;
+        exam_total_time = document.getElementById("exam_total_time").value;
+        exam_start_time = document.getElementById("exam_start_time").value;
+        exam_file = document.getElementById("exam_file").value;
+        console.log("dataaa---", exam_name, exam_code,summernote, exam_total_time, exam_start_time, exam_file)
+    }
+</script>
+</head>
 <body id="body-pd" class="main-body">
     <header class="header" id="header">
         <div class="header_toggle">
@@ -279,11 +290,11 @@
             <div class="row my-2">
                 <div class="col-6">
                     <label class="fw-bold" for="">Name</label>
-                    <input type="text" class="form-control">
+                    <input type="text" id="exam_name" class="form-control">
                 </div>
                 <div class="col-6">
                     <label class="fw-bold" for="">Code</label>
-                    <input type="text" class="form-control">
+                    <input type="text" id="exam_code" class="form-control">
                 </div>
             </div>
             <div class="my-2">
@@ -301,21 +312,21 @@
             <div class="row my-2">
                 <div class="col-6">
                     <label class="fw-bold" for="">Total Time In Minutes</label>
-                    <input type="number" class="form-control">
+                    <input type="number" id="exam_total_time" class="form-control">
                 </div>
                 <div class="col-6">
                     <label class="fw-bold" for="">Start Date Time</label>
-                    <input type="date" class="form-control">
+                    <input type="date" id="exam_start_time" class="form-control">
                 </div>
 
             </div>
             <div class="row my-2">
                 <div class="col-6">
                     <label class="fw-bold" for="">Image</label>
-                    <input type="file" class="form-control">
+                    <input type="file" id="exam_file" class="form-control">
                 </div>
             </div>
-            <button class="btn btn-light border my-2">Save</button>
+            <button class="btn btn-light border my-2" type="button" onclick="addExamData()">Save</button>
 
         </div>
         <div class="bg-light">
