@@ -19,7 +19,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="testSummary.css">
-    <script src="./questionpage.js"></script>
+    
     
 
 
@@ -90,7 +90,12 @@
       });
       </script> -->
     <script>
-        var deadline = new Date("July 22, 2022 16:55:25").getTime();
+               
+    // $('#showResult').click(()=>{
+    //     window.location.href="result_detail.html"
+    //     console.log("not ");
+    // })
+        var deadline = new Date("July 25, 2022 09:40:25").getTime();
         var x = setInterval(function () {
             var now = new Date().getTime();
             var t = deadline - now;
@@ -103,7 +108,7 @@
             if (t = 5000) {
                 // clearInterval(x);
                 document.getElementById("demo").style.cssText.color = "red";
-                window.location.href = "feedback.html";
+                window.location.href = "#";
                 // document.getElementById("demo").innerHTML = "EXPIRED";
             }
             else if (t == 0) {
@@ -284,7 +289,7 @@
                        
                         <div class="row text- " style="margin-top: 10%; margin-left:5%;width:50%;">
                             <button class="btn btn-success mt-2 p-2" data-bs-target="#testSummary"
-                                data-bs-toggle="modal">Submit</button>
+                                data-bs-toggle="modal" >Submit</button>
                         </div>
 
                     </div>
@@ -355,6 +360,7 @@
             </div>
         </div>
         </div>
+        <script src="./questionpage.js"></script>
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     $('#showResult').click(()=>{
-        window.location.href="feedback.html"
+        window.location.href="result_detail.html"
     })
 
 
