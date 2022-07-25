@@ -1,6 +1,7 @@
 
-console.log("pathname-----", window.location.pathname)
-var pathname = window.location.pathname;
+var pathname = window.location.pathname.toString();
+console.log("pathname-----", pathname)
+
 function GetCategory() {
   var xhttp = new XMLHttpRequest();
   xhttp.open("POST", "http://192.168.1.28/EXAMPANEL/admin/get_category", true);
@@ -10,7 +11,7 @@ function GetCategory() {
     if (this.readyState == 4 && this.status == 200) {
       var category = JSON.parse(this.responseText);
       console.log("--", category)
-      if (pathname === "/category_details.html") {
+      if (pathname === "/category-details.html") {
         category.forEach(element => {
           document.getElementById("category_data").innerHTML += `
           <tr>
