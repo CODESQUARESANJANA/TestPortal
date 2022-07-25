@@ -11,8 +11,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script> -->
-<link rel="stylesheet" type="text/css" href="Css File/QuestionAdd.css">
-<script src="/CS_Javascript/MCQ.js"></script>
+    <link rel="stylesheet" type="text/css" href="Css File/QuestionAdd.css">
+    <script src="/CS_Javascript/MCQ.js"></script>
+    <script src="/CS_Javascript/CommonApi.js"></script>
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
 
@@ -176,7 +177,8 @@
         .head_link:hover {
             color: #f5f5f5;
         }
-        .main-body{
+
+        .main-body {
             padding-left: 70px;
         }
 
@@ -239,27 +241,27 @@
         <nav class="nav">
             <div>
                 <a href="/index.html" class="nav_logo">
-                  <i class="bx bx-layer nav_logo-icon"></i>
-                  <span class="nav_logo-name">Quiz Admin Panel</span>
+                    <i class="bx bx-layer nav_logo-icon"></i>
+                    <span class="nav_logo-name">Quiz Admin Panel</span>
                 </a>
                 <div class="nav_list">
-                  <a href="/question-details.html" class="nav_link active">
-                    <i class="bx bx-grid-alt nav_icon"></i>
-                    <span class="nav_name">Question Bank</span>
-                  </a>
-                  <a href="/exam-details.html" class="nav_link">
-                    <i class="bx bx-laptop nav_icon"></i>
-                    <span class="nav_name">Exam</span>
-                  </a>
-                  <hr style="color: #f5f5f5;">
-                  <a href="/userlist.html" class="nav_link">
-                    <i class="bx bx-user nav_icon"></i>
-                    <span class="nav_name">User List</span>
-                  </a>
-                  <a href="#" class="nav_link">
-                    <i class="bx bx-message-square-detail nav_icon\"></i>
-                    <span class="nav_name">Access Control</span>
-                  </a>
+                    <a href="/question-details.html" class="nav_link active">
+                        <i class="bx bx-grid-alt nav_icon"></i>
+                        <span class="nav_name">Question Bank</span>
+                    </a>
+                    <a href="/exam-details.html" class="nav_link">
+                        <i class="bx bx-laptop nav_icon"></i>
+                        <span class="nav_name">Exam</span>
+                    </a>
+                    <hr style="color: #f5f5f5;">
+                    <a href="/userlist.html" class="nav_link">
+                        <i class="bx bx-user nav_icon"></i>
+                        <span class="nav_name">User List</span>
+                    </a>
+                    <a href="#" class="nav_link">
+                        <i class="bx bx-message-square-detail nav_icon\"></i>
+                        <span class="nav_name">Access Control</span>
+                    </a>
                 </div>
             </div>
             <a href="#" class="nav_link">
@@ -270,78 +272,82 @@
     </div>
     <!--Container Main start-->
     <div class="" style="padding-top: 60px; ">
-      <div class="d-flex justify-content-between p-2">
-        <div>Add New Question</div>
-        <div><button style="border-color:white; background-color:bisque;">Save</button></div>
-      </div>
-  
-      <div class="row p-3 m-0 rounded">
-        <div class="col-6 shadow-sm" style="background-color:white;border-radius: 2%;">
-          <div style="width: 100%;" class="p-0 pt-3">
-            <p style="padding-left:10px">Question</p>
-          </div>
-          <hr>
-          <div>
-            <textarea cols="60" class="form-control" style="max-width: 100%;" id="texting" class="padding:2px"></textarea>
-          </div>
-  
-          <div>
-            <br> <a href="#" class="link_Color_Black">
-              <input type="checkbox"> <strong>Related Questions
-              </strong>
-            </a>
-          </div>
-          <br>
-          <div>
-            <div class="email editor">
-              <div class="col-md-12 p-0">
-                <div class="form-group">
-                  <label class="control-label sr-only" for="summernote">Descriptions </label>
-                  <textarea class="form-control" id="summernote" name="editordata" rows="6"
-                    placeholder="Write Descriptions"></textarea>
-                </div>
-              </div>
-            </div>
-            <!-- <textarea name="" id="" cols="60" style="max-width:100%;" rows="4"></textarea> -->
-          </div>
-          <div> <a href="#" class="link_Color_Black">
-              <input type="checkbox"> <strong>Active</strong>
-            </a>
-            <br>
-          </div>
-  
+        <div class="d-flex justify-content-between p-2">
+            <div>Add New Question</div>
+            <div><button style="border-color:white; background-color:bisque;">Save</button></div>
         </div>
-  
-        <div class="col-6 pl-3 rounded">
-          <div class="p-3 p-0" style="background-color:white;border-radius: 2%;">
-  
-            <div class=" p-0 pt-3 d-flex justify-content-between"
-              style="padding-left:10px;display:flex;  flex-direction: row;">
-              <div style="justify-content:left;">Options</div>
-              <div style="justify-content:right;text-align: right;" class=""><a href="#" style="text-decoration:none;"
-                  onclick="AddOpt()" ondblclick="True_False()" id="Option_Adding">Add Options</a></div>
-  
-  
+
+        <div class="row p-3 m-0 rounded">
+            <div class="col-6 shadow-sm" style="background-color:white;border-radius: 2%;">
+                <div style="width: 100%;" class="p-0 pt-3">
+                    <p style="padding-left:10px">Question</p>
+                </div>
+                <hr>
+                <div>
+                    <textarea cols="60" class="form-control" style="max-width: 100%;" id="texting"
+                        class="padding:2px"></textarea>
+                </div>
+
+                <div>
+                    <br> <a href="#" class="link_Color_Black">
+                        <input type="checkbox"> <strong>Related Questions
+                        </strong>
+                    </a>
+                </div>
+                <br>
+                <div>
+                    <div class="email editor">
+                        <div class="col-md-12 p-0">
+                            <div class="form-group">
+                                <label class="control-label sr-only" for="summernote">Descriptions </label>
+                                <textarea class="form-control" id="summernote" name="editordata" rows="6"
+                                    placeholder="Write Descriptions"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <textarea name="" id="" cols="60" style="max-width:100%;" rows="4"></textarea> -->
+                </div>
+                <div> <a href="#" class="link_Color_Black">
+                        <input type="checkbox"> <strong>Active</strong>
+                    </a>
+                    <br>
+                </div>
+
+                <div class="pt-5 pb-5">
+                    <select name="" class="form-control" id="getCategory">
+                        <option value="">Select category</option>
+                    </select>
+                </div>
+
+
             </div>
-  
-  
-            <hr>
-            <div>
-              <span style="font-weight:bold ;">Answer Type</span>
-  
-              <br>
-              <select name="Type" class="form-control" id="QType" style="width:100%">
-                <option value="MCQ" id="MCQ">MCQ</option>
-                <option value="Single_Choice" id="Single_Choice">Single_Choice</option>
-                <!-- <option value="T&F">True and False</option> -->
-                <option value="True&False" id="T&F">True_False</option>
-                <option value="Write_Answer">Write Answer</option>
-              </select>
-            </div>
-            <br>
-            <div id="Multiple_Options">
-  
-              <!-- <div style="font-weight:bold">Options</div>
+
+            <div class="col-6 pl-3 rounded">
+                <div class="p-3 p-0" style="background-color:white;border-radius: 2%;">
+
+                    <div class=" p-0 pt-3 d-flex justify-content-between"
+                        style="padding-left:10px;display:flex;  flex-direction: row;">
+                        <div style="justify-content:left;">Options</div>
+                        <div style="justify-content:right;text-align: right;" class=""><a href="#"
+                                style="text-decoration:none;" onclick="AddOpt()" ondblclick="True_False()"
+                                id="Option_Adding">Add Options</a></div>
+                    </div>
+                    <hr>
+                    <div>
+                        <span style="font-weight:bold ;">Answer Type</span>
+                        <br>
+                        <select name="Type" class="form-control" id="QType" style="width:100%">
+                            <option value="MCQ" id="MCQ">MCQ</option>
+                            <option value="Single_Choice" id="Single_Choice">Single_Choice</option>
+                            <!-- <option value="T&F">True and False</option> -->
+                            <option value="True&False" id="T&F">True_False</option>
+                            <option value="Write_Answer">Write Answer</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div id="Multiple_Options">
+
+                        <!-- <div style="font-weight:bold">Options</div>
             <div class="d-flex">
               <div style="padding:2%">
               <input type="radio" ></div> 
@@ -353,96 +359,80 @@
               
             </div>
              -->
-  
-  
-  
-  
-  
+
+
+
+
+
+                    </div>
+
+
+
+                </div>
             </div>
-  
-  
-  
-          </div>
-        </div>
-  
-      </div>
-  
-      <div class="row p-3 m-0 pt-2 rounded" style="padding-top: 1%;">
-        <div class="col-6  shadow-sm" style="background-color:white;border-radius: 2%;">
-          <div class="p-0 pt-3 d-flex justify-content-between"
-            style="padding-left:10px;display:flex;  flex-direction: row;">
-            <div style="justify-content:left;">Tags</div>
-            <div class="rounded"
-              style="justify-content:right;text-align: right;border:1px solid black;background-color:rgb(153, 152, 152)">
-              <a href="#" style="color:black" class="link_Color_Black">Add Tags</a></div>
-  
-          </div>
-          <hr>
-  
-  
-  
-        </div>
-  
-    </div>
-    <script src="/asstes/vendor/jquery/jquery-3.3.1.min.js"></script>
-    <script src="/asstes/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="/asstes/vendor/slimscroll/jquery.slimscroll.js"></script>
-    <script src="/asstes/vendor/select2/js/select2.min.js"></script>
-    <script src="/asstes/vendor/summernote/js/summernote-bs4.js"></script>
-    <script src="/asstes/libs/js/main-js.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('.js-example-basic-multiple').select2({ tags: true });
-        });
-    </script>
-    <script>
-        $(document).ready(function () {
-            $('#summernote').summernote({
-                height: 300
 
+        </div>
+
+
+        <script src="/asstes/vendor/jquery/jquery-3.3.1.min.js"></script>
+        <script src="/asstes/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+        <script src="/asstes/vendor/slimscroll/jquery.slimscroll.js"></script>
+        <script src="/asstes/vendor/select2/js/select2.min.js"></script>
+        <script src="/asstes/vendor/summernote/js/summernote-bs4.js"></script>
+        <script src="/asstes/libs/js/main-js.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('.js-example-basic-multiple').select2({ tags: true });
             });
-        });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function (event) {
-            const showNavbar = (toggleId, navId, bodyId, headerId) => {
-                const toggle = document.getElementById(toggleId),
-                    nav = document.getElementById(navId),
-                    bodypd = document.getElementById(bodyId),
-                    headerpd = document.getElementById(headerId);
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('#summernote').summernote({
+                    height: 300
 
-                // Validate that all variables exist
-                if (toggle && nav && bodypd && headerpd) {
-                    toggle.addEventListener("click", () => {
-                        // show navbar
-                        nav.classList.toggle("show");
-                        // change icon
-                        toggle.classList.toggle("bx-x");
-                        // add padding to body
-                        bodypd.classList.toggle("body-pd");
-                        // add padding to header
-                        headerpd.classList.toggle("body-pd");
-                    });
+                });
+            });
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function (event) {
+                const showNavbar = (toggleId, navId, bodyId, headerId) => {
+                    const toggle = document.getElementById(toggleId),
+                        nav = document.getElementById(navId),
+                        bodypd = document.getElementById(bodyId),
+                        headerpd = document.getElementById(headerId);
+
+                    // Validate that all variables exist
+                    if (toggle && nav && bodypd && headerpd) {
+                        toggle.addEventListener("click", () => {
+                            // show navbar
+                            nav.classList.toggle("show");
+                            // change icon
+                            toggle.classList.toggle("bx-x");
+                            // add padding to body
+                            bodypd.classList.toggle("body-pd");
+                            // add padding to header
+                            headerpd.classList.toggle("body-pd");
+                        });
+                    }
+                };
+
+                showNavbar("header-toggle", "nav-bar", "body-pd", "header");
+
+                /*===== LINK ACTIVE =====*/
+                const linkColor = document.querySelectorAll(".nav_link");
+
+                function colorLink() {
+                    if (linkColor) {
+                        linkColor.forEach((l) => l.classList.remove("active"));
+                        this.classList.add("active");
+                    }
                 }
-            };
+                linkColor.forEach((l) => l.addEventListener("click", colorLink));
 
-            showNavbar("header-toggle", "nav-bar", "body-pd", "header");
-
-            /*===== LINK ACTIVE =====*/
-            const linkColor = document.querySelectorAll(".nav_link");
-
-            function colorLink() {
-                if (linkColor) {
-                    linkColor.forEach((l) => l.classList.remove("active"));
-                    this.classList.add("active");
-                }
-            }
-            linkColor.forEach((l) => l.addEventListener("click", colorLink));
-
-            // Your code to run since DOM is loaded and ready
-        });
-    </script>
-    <!--Container Main end-->
+                // Your code to run since DOM is loaded and ready
+            });
+        </script>
+        <!--Container Main end-->
 </body>
 
 
