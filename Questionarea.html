@@ -1,96 +1,103 @@
+<!-- Required meta tags -->
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+<head>
+<!-- Bootstrap CSS -->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <!-- font-awesome-->
 
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"> -->
-
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <title>Hello, world!</title>
-  
+<title>Hello, world!</title>
+
 <script>
 
-$(document).ready(function () {
-  $("#sidenav").load("index2.html");
+    $(document).ready(function () {
+        $("#sidenav").load("index.html");
 
 
 
 
-});
+    });
 
 
 
 
-</script>  
+</script>
 
-    <!-- Optional JavaScript; choose one of the two! -->
+<!-- Optional JavaScript; choose one of the two! -->
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script> -->
-   
+<!-- Option 2: Separate Popper and Bootstrap JS -->
 
-    
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
 <div class="container">
     <div id="sidenav">
 
     </div>
-    <div class="card" style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);font-family: Arial, Helvetica, sans-serif">
+    <div class="card"
+        style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);font-family: Arial, Helvetica, sans-serif">
         <div class="card-header" style="background-color:#7FC1FE">
             <h3 class="card-title">Question Box</h3>
-            
-<div>
 
-    <div class="input-group rounded">
-        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-        <span class="input-group-text border-0" id="search-addon">
-          <i class="fas fa-search"></i>
-        </span>
-      </div>
+            <div>
 
-</div>
+                <div class="input-group rounded">
+                    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                        aria-describedby="search-addon" />
+                    <span class="input-group-text border-0" id="search-addon">
+                        <i class="fas fa-search"></i>
+                    </span>
+                </div>
+
+            </div>
 
 
         </div>
-            
-            
-            
-            
 
 
-        <table class="table table-hover table-responsive table-sm table-sm overflow-x overflow-y justify-content-center" style="overflow-y: scroll">
-            <tbody><tr>
-                <th>
-                    Id
-                </th>
-                <th>
-                    Question
-                </th>
-                <th>
-                    Option type
-                </th>
-                <th>
-                    Date created
-                </th>
-                <th>
-                    Active
-                </th>
-                <th></th>
-            </tr>
+
+
+
+
+        <table class="table table-hover table-responsive table-sm table-sm overflow-x overflow-y justify-content-center"
+            style="overflow-y: scroll">
+            <tbody>
+                <tr>
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                        Question
+                    </th>
+                    <th>
+                        Option type
+                    </th>
+                    <th>
+                        Date created
+                    </th>
+                    <th>
+                        Active
+                    </th>
+                    <th></th>
+                </tr>
                 <tr>
                     <td>
                         1
                     </td>
                     <td>
-                        How many consonants are there in the English alphabet? 
-    
+                        How many consonants are there in the English alphabet?
+
                     </td>
                     <td>
                         ---
@@ -102,10 +109,11 @@ $(document).ready(function () {
                         <input checked="checked" class="check-box" type="checkbox">
                     </td>
                     <td>
-                      <button class="btn btn-primary" title="Edit" href="" onclick="window.location.href='set-exam.html'">   
+                        <button class="btn btn-primary" title="Edit" href=""
+                            onclick="window.location.href='set-exam.html'">
                             Modify
                         </button>
-                        
+
                     </td>
                 </tr>
                 <tr>
@@ -114,7 +122,7 @@ $(document).ready(function () {
                     </td>
                     <td>
                         How many consonants are there in the English alphabet?
-    
+
                     </td>
                     <td>
                         ---
@@ -126,8 +134,9 @@ $(document).ready(function () {
                         <input checked="checked" class="check-box" type="checkbox">
                     </td>
                     <td>
-                        <button class="btn btn-primary" title="Edit" href="" onclick="window.location.href='set-exam.html'">
-                        Modify
+                        <button class="btn btn-primary" title="Edit" href=""
+                            onclick="window.location.href='set-exam.html'">
+                            Modify
                         </button>
                     </td>
                 </tr>
@@ -148,7 +157,8 @@ $(document).ready(function () {
                         <input checked="checked" class="check-box" type="checkbox">
                     </td>
                     <td>
-                        <button class="btn btn-primary" title="Edit" href="" onclick="window.location.href='set-exam.html'">
+                        <button class="btn btn-primary" title="Edit" href=""
+                            onclick="window.location.href='set-exam.html'">
                             Modify
                         </button>
                     </td>
@@ -159,7 +169,7 @@ $(document).ready(function () {
                     </td>
                     <td>
                         How many consonants are there in the English alphabet?
-    
+
                     </td>
                     <td>
                         ---
@@ -171,7 +181,8 @@ $(document).ready(function () {
                         <input checked="checked" class="check-box" type="checkbox">
                     </td>
                     <td>
-                        <button class="btn btn-primary" title="Edit" href="" onclick="window.location.href='set-exam.html'">
+                        <button class="btn btn-primary" title="Edit" href=""
+                            onclick="window.location.href='set-exam.html'">
                             Modify
                         </button>
                     </td>
@@ -182,7 +193,7 @@ $(document).ready(function () {
                     </td>
                     <td>
                         How many consonants are there in the English alphabet?
-    
+
                     </td>
                     <td>
                         ---
@@ -194,7 +205,8 @@ $(document).ready(function () {
                         <input checked="checked" class="check-box" type="checkbox">
                     </td>
                     <td>
-                        <button class="btn btn-primary" title="Edit" href="" onclick="window.location.href='set-exam.html'">
+                        <button class="btn btn-primary" title="Edit" href=""
+                            onclick="window.location.href='set-exam.html'">
                             Modify
                         </button>
                     </td>
@@ -205,7 +217,7 @@ $(document).ready(function () {
                     </td>
                     <td>
                         How many consonants are there in the English alphabet?
-    
+
                     </td>
                     <td>
                         ---
@@ -217,7 +229,8 @@ $(document).ready(function () {
                         <input checked="checked" class="check-box" type="checkbox">
                     </td>
                     <td>
-                        <button class="btn btn-primary" title="Edit" href="" onclick="window.location.href='set-exam.html'">
+                        <button class="btn btn-primary" title="Edit" href=""
+                            onclick="window.location.href='set-exam.html'">
                             Modify
                         </button>
                     </td>
@@ -228,7 +241,7 @@ $(document).ready(function () {
                     </td>
                     <td>
                         How many consonants are there in the English alphabet?
-    
+
                     </td>
                     <td>
                         ---
@@ -240,7 +253,8 @@ $(document).ready(function () {
                         <input checked="checked" class="check-box" type="checkbox">
                     </td>
                     <td>
-                        <button class="btn btn-primary" title="Edit" href="" onclick="window.location.href='set-exam.html'">
+                        <button class="btn btn-primary" title="Edit" href=""
+                            onclick="window.location.href='set-exam.html'">
                             Modify
                         </button>
                     </td>
@@ -251,7 +265,7 @@ $(document).ready(function () {
                     </td>
                     <td>
                         How many consonants are there in the English alphabet?
-    
+
                     </td>
                     <td>
                         ---
@@ -263,7 +277,8 @@ $(document).ready(function () {
                         <input checked="checked" class="check-box" type="checkbox">
                     </td>
                     <td>
-                        <button class="btn btn-primary" title="Edit" href="" onclick="window.location.href='set-exam.html'">
+                        <button class="btn btn-primary" title="Edit" href=""
+                            onclick="window.location.href='set-exam.html'">
                             Modify
                         </button>
                     </td>
@@ -274,7 +289,7 @@ $(document).ready(function () {
                     </td>
                     <td>
                         How many consonants are there in the English alphabet?
-    
+
                     </td>
                     <td>
                         ---
@@ -286,7 +301,8 @@ $(document).ready(function () {
                         <input checked="checked" class="check-box" type="checkbox">
                     </td>
                     <td>
-                        <button class="btn btn-primary" title="Edit" href="" onclick="window.location.href='set-exam.html'">
+                        <button class="btn btn-primary" title="Edit" href=""
+                            onclick="window.location.href='set-exam.html'">
                             Modify
                         </button>
                     </td>
@@ -297,7 +313,7 @@ $(document).ready(function () {
                     </td>
                     <td>
                         How many consonants are there in the English alphabet?
-    
+
                     </td>
                     <td>
                         ---
@@ -309,22 +325,23 @@ $(document).ready(function () {
                         <input checked="checked" class="check-box" type="checkbox">
                     </td>
                     <td>
-                        <button class="btn btn-primary" title="Edit" href="" onclick="window.location.href='set-exam.html'">
+                        <button class="btn btn-primary" title="Edit" href=""
+                            onclick="window.location.href='set-exam.html'">
                             Modify
                         </button>
                     </td>
                 </tr>
-        </tbody></table>
+            </tbody>
+        </table>
 
         <nav aria-label="Page navigation example">
             <ul class="pagination">
-              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item"><a class="page-link" href="#">Next</a></li>
-      </div>
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
     </div>
-
-
-  
+</div>
+</body>
+</html>
