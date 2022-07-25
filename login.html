@@ -33,7 +33,7 @@
                     <div class="row">
                       <div class="col-12 d-flex">
                         
-                            <input class="form-control shadow-sm bg-body rounded" type="password" name="password"  id="password" placeholder="Enter Your Password" style="text-align: center; width:27%; border-radius: 5px; height: 57px; border: none; width: 100%;">
+                            <input class="form-control shadow-sm bg-body rounded" type="password" name="password"  id="passWord_field" placeholder="Enter Your Password" style="text-align: center; width:27%; border-radius: 5px; height: 57px; border: none; width: 100%;">
                             <i class="bi bi-eye-slash" id="togglePassword" style="margin-left: -21px; cursor:pointer;"></i>
                         
                       </div>
@@ -54,7 +54,7 @@
 
                     <div class="row mt-4 pt-2">
                     <!-- <div class="mt-4 pt-2"> -->
-                        <button type="button" class="btn btn-primary btn-block border-round" id="UserLogin" style="background-color: #5193f2;">Login</button>
+                        <button type="button" class="btn btn-primary btn-block border-round" id="UserLogin" style="background-color: #5193f2;" onclick="Verify()">Login</button>
 
                         <!-- <button type="submit" class="bg-primary  btn-block">Submit</button> -->
                     <!-- </div> -->
@@ -70,9 +70,9 @@
       <script type="text/javascript">
       //  $(document).ready(function(){
           
-          $('#UserLogin').click(()=>{
-              window.location.href="description.html"
-          })
+          // $('#UserLogin').click(()=>{
+          //     window.location.href="description.html"
+          // })
       // })
              
        
@@ -107,6 +107,20 @@
             e.preventDefault();
         });
 
+        function Verify() {
+  let emailAadress = "user@gmail.com";
+  let passWord = "12345";
+  
+  let userInput =  document.getElementById("email_feild").value;
+  var passWordInput = document.getElementById("passWord_field").value;
+  if (userInput == emailAadress && passWordInput == passWord) {
+  alert("login successfull")
+  window.location.href="description.html"
+  } else {
+  alert("login not successfull")
+
+  }
+};
         
     </script>
 
