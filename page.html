@@ -11,7 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script> -->
-
+<link rel="stylesheet" type="text/css" href="Css File/QuestionAdd.css">
+<script src="/CS_Javascript/MCQ.js"></script>
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
 
@@ -224,19 +225,8 @@
     <link rel="stylesheet" href="/asstes/vendor/select2/css/select2.css">
     <link rel="stylesheet" href="/asstes/vendor/summernote/css/summernote-bs4.css">
     <link rel="stylesheet" href="/asstes/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
-
-<script>
-    function addExamData(){
-        exam_name = document.getElementById("exam_name").value;
-        exam_code = document.getElementById("exam_code").value;
-        summernote = document.getElementById("summernote").value;
-        exam_total_time = document.getElementById("exam_total_time").value;
-        exam_start_time = document.getElementById("exam_start_time").value;
-        exam_file = document.getElementById("exam_file").value;
-        console.log("dataaa---", exam_name, exam_code,summernote, exam_total_time, exam_start_time, exam_file)
-    }
-</script>
 </head>
+
 <body id="body-pd" class="main-body">
     <header class="header" id="header">
         <div class="header_toggle">
@@ -283,55 +273,119 @@
     </div>
     <!--Container Main start-->
     <div class="" style="padding-top: 60px; ">
-        <div style="border-bottom: 1px solid #dfdfdf;">
-            <p class="pt-3" style="padding-left: 10px;">Exam modal</p>
+      <div class="d-flex justify-content-between p-2">
+        <div>Add New Question</div>
+        <div><button style="border-color:white; background-color:bisque;">Save</button></div>
+      </div>
+  
+      <div class="row p-3 m-0 rounded">
+        <div class="col-6 shadow-sm" style="background-color:white;border-radius: 2%;">
+          <div style="width: 100%;" class="p-0 pt-3">
+            <p style="padding-left:10px">Question</p>
+          </div>
+          <hr>
+          <div>
+            <textarea cols="60" class="form-control" style="max-width: 100%;" id="texting" class="padding:2px"></textarea>
+          </div>
+  
+          <div>
+            <br> <a href="#" class="link_Color_Black">
+              <input type="checkbox"> <strong>Related Questions
+              </strong>
+            </a>
+          </div>
+          <br>
+          <div>
+            <div class="email editor">
+              <div class="col-md-12 p-0">
+                <div class="form-group">
+                  <label class="control-label sr-only" for="summernote">Descriptions </label>
+                  <textarea class="form-control" id="summernote" name="editordata" rows="6"
+                    placeholder="Write Descriptions"></textarea>
+                </div>
+              </div>
+            </div>
+            <!-- <textarea name="" id="" cols="60" style="max-width:100%;" rows="4"></textarea> -->
+          </div>
+          <div> <a href="#" class="link_Color_Black">
+              <input type="checkbox"> <strong>Active</strong>
+            </a>
+            <br>
+          </div>
+  
         </div>
-        <div class="p-3">
-            <div class="row my-2">
-                <div class="col-6">
-                    <label class="fw-bold" for="">Name</label>
-                    <input type="text" id="exam_name" class="form-control">
-                </div>
-                <div class="col-6">
-                    <label class="fw-bold" for="">Code</label>
-                    <input type="text" id="exam_code" class="form-control">
-                </div>
+  
+        <div class="col-6 pl-3 rounded">
+          <div class="p-3 p-0" style="background-color:white;border-radius: 2%;">
+  
+            <div class=" p-0 pt-3 d-flex justify-content-between"
+              style="padding-left:10px;display:flex;  flex-direction: row;">
+              <div style="justify-content:left;">Options</div>
+              <div style="justify-content:right;text-align: right;" class=""><a href="#" style="text-decoration:none;"
+                  onclick="AddOpt()" ondblclick="True_False()" id="Option_Adding">Add Options</a></div>
+  
+  
             </div>
-            <div class="my-2">
-                <label class="fw-bold" for="">Description</label>
-                <div class="email editor">
-                    <div class="col-md-12 p-0">
-                        <div class="form-group">
-                            <label class="control-label sr-only" for="summernote">Descriptions </label>
-                            <textarea class="form-control" id="summernote" name="editordata" rows="6"
-                                placeholder="Write Descriptions"></textarea>
-                        </div>
-                    </div>
-                </div>
+  
+  
+            <hr>
+            <div>
+              <span style="font-weight:bold ;">Answer Type</span>
+  
+              <br>
+              <select name="Type" class="form-control" id="QType" style="width:100%">
+                <option value="MCQ" id="MCQ">MCQ</option>
+                <option value="Single_Choice" id="Single_Choice">Single_Choice</option>
+                <!-- <option value="T&F">True and False</option> -->
+                <option value="True&False" id="T&F">True_False</option>
+                <option value="Write_Answer">Write Answer</option>
+              </select>
             </div>
-            <div class="row my-2">
-                <div class="col-6">
-                    <label class="fw-bold" for="">Total Time In Minutes</label>
-                    <input type="number" id="exam_total_time" class="form-control">
-                </div>
-                <div class="col-6">
-                    <label class="fw-bold" for="">Start Date Time</label>
-                    <input type="date" id="exam_start_time" class="form-control">
-                </div>
-
+            <br>
+            <div id="Multiple_Options">
+  
+              <!-- <div style="font-weight:bold">Options</div>
+            <div class="d-flex">
+              <div style="padding:2%">
+              <input type="radio" ></div> 
+              <input type="text" class="pl-2" style="width:100%">
+              <i class="fa fa-trash p-2 bg-secondary" aria-hidden="true">
+  
+              </i>
+  
+              
             </div>
-            <div class="row my-2">
-                <div class="col-6">
-                    <label class="fw-bold" for="">Image</label>
-                    <input type="file" id="exam_file" class="form-control">
-                </div>
+             -->
+  
+  
+  
+  
+  
             </div>
-            <button class="btn btn-light border my-2" type="button" onclick="addExamData()">Save</button>
-
+  
+  
+  
+          </div>
         </div>
-        <div class="bg-light">
-            <p class="text-primary py-3" style="padding-left: 15px; cursor: pointer;">Back to list</p>
+  
+      </div>
+  
+      <div class="row p-3 m-0 pt-2 rounded" style="padding-top: 1%;">
+        <div class="col-6  shadow-sm" style="background-color:white;border-radius: 2%;">
+          <div class="p-0 pt-3 d-flex justify-content-between"
+            style="padding-left:10px;display:flex;  flex-direction: row;">
+            <div style="justify-content:left;">Tags</div>
+            <div class="rounded"
+              style="justify-content:right;text-align: right;border:1px solid black;background-color:rgb(153, 152, 152)">
+              <a href="#" style="color:black" class="link_Color_Black">Add Tags</a></div>
+  
+          </div>
+          <hr>
+  
+  
+  
         </div>
+  
     </div>
     <script src="/asstes/vendor/jquery/jquery-3.3.1.min.js"></script>
     <script src="/asstes/vendor/bootstrap/js/bootstrap.bundle.js"></script>
@@ -393,63 +447,6 @@
     </script>
     <!--Container Main end-->
 </body>
-<!-- <body style="padding:0; margin:0;">
-    <div style="height: 70px; background-color:#343a40;"></div>
-    <div class="row p-0 m-0">
-        <div class="col-2 p-0" style="background-color: #343a40; height: 100vh;"></div>
-        <div class="col-10 p-0">
-            <div style="border-bottom: 1px solid #dfdfdf;">
-                <p class="pt-3" style="padding-left: 10px;">Exam modal</p>
-            </div>
-            <div class="p-3">
-                <div class="row my-2">
-                    <div class="col-6">
-                        <label class="fw-bold" for="">Name</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="col-6">
-                        <label class="fw-bold" for="">Code</label>
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="my-2">
-                    <label class="fw-bold" for="">Description</label>
-                    <div class="email editor">
-                        <div class="col-md-12 p-0">
-                            <div class="form-group">
-                                <label class="control-label sr-only" for="summernote">Descriptions </label>
-                                <textarea class="form-control" id="summernote" name="editordata" rows="6"
-                                    placeholder="Write Descriptions"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row my-2">
-                    <div class="col-6">
-                        <label class="fw-bold" for="">Total Time In Minutes</label>
-                        <input type="number" class="form-control">
-                    </div>
-                    <div class="col-6">
-                        <label class="fw-bold" for="">Start Date Time</label>
-                        <input type="date" class="form-control">
-                    </div>
 
-                </div>
-                <div class="row my-2">
-                    <div class="col-6">
-                        <label class="fw-bold" for="">Image</label>
-                        <input type="file" class="form-control">
-                    </div>
-                </div>
-                <button class="btn btn-light border my-2">Save</button>
-
-            </div>
-            <div class="bg-light">
-                <p class="text-primary py-3" style="padding-left: 15px; cursor: pointer;">Back to list</p>
-            </div>
-        </div>
-    </div>
-   
-</body> -->
 
 </html>
