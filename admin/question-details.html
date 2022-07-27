@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <title>Question details</title>
+    <script src="/CS_Javascript/CommonApi.js"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
     
@@ -231,7 +232,7 @@
               <span class="nav_logo-name">Quiz Admin Panel</span>
             </a>
             <div class="nav_list">
-              <a href="/admin/category-details.html" class="nav_link active">
+              <a href="/admin/category_name.html" class="nav_link active">
                 <i class="bx bx-grid-alt nav_icon"></i>
                 <span class="nav_name">Category Name</span>
               </a>
@@ -261,12 +262,11 @@
         </nav>
       </div>
       <!--Container Main start-->
-      <div style="padding-top: 60px;">
+      <div style="padding-top: 60px;" id="questionCardDiv">
  
-        <div class="container">
     
             <div class="card"
-                style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);font-family: Arial, Helvetica, sans-serif">
+                style="box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);font-family: Arial, Helvetica, sans-serif;">
                 <div class="card-header" style="background-color:#7FC1FE">
                     <h3 class="card-title">Question Box</h3>
         
@@ -290,10 +290,10 @@
         
         
         
-                <table class="table table-hover table-responsive table-sm table-sm overflow-x overflow-y justify-content-center"
-                    style="overflow-y: scroll">
-                    <tbody>
-                        <tr>
+                <table class="table table-hover table-responsive table-sm table-sm overflow-x overflow-y justify-content-center" id="questionTable"
+                    style="overflow-y: scroll;max-width: -webkit-fill-available;">
+                    <tbody id="question_data">
+                         <tr>
                             <th>
                                 Id
                             </th>
@@ -304,13 +304,15 @@
                                 Option type
                             </th>
                             <th>
+                              Category
+                          </th>
+                            <th>
                                 Date created
                             </th>
-                            <th>
-                                Active
-                            </th>
+                            
                             <th></th>
                         </tr>
+                        <!--
                         <tr>
                             <td>
                                 1
@@ -326,12 +328,12 @@
                                 20/07/2022 12:12:12 PM
                             </td>
                             <td>
-                                <input checked="checked" class="check-box" type="checkbox">
+                                <input checked="checked" class="check-box" type="checkbox" disabled="disabled">
                             </td>
                             <td>
                                 <button class="btn btn-primary" title="Edit" href=""
                                     onclick="window.location.href='add-question.html'">
-                                    Modify
+                                    Edit
                                 </button>
         
                             </td>
@@ -351,12 +353,14 @@
                                 20/07/2022 12:12:12 PM
                             </td>
                             <td>
-                                <input checked="checked" class="check-box" type="checkbox">
+                                <input checked="checked" class="check-box" type="checkbox" disabled="disabled">
                             </td>
                             <td>
                                 <button class="btn btn-primary" title="Edit" href=""
+
                                     onclick="window.location.href='add-question.html'">
-                                    Modify
+                                    Edit
+
                                 </button>
                             </td>
                         </tr>
@@ -374,12 +378,14 @@
                                 20/07/2022 12:12:12 PM
                             </td>
                             <td>
-                                <input checked="checked" class="check-box" type="checkbox">
+                                <input checked="checked" class="check-box" type="checkbox" disabled="disabled">
                             </td>
                             <td>
                                 <button class="btn btn-primary" title="Edit" href=""
+
                                     onclick="window.location.href='add-question.html'">
-                                    Modify
+                                    Edit
+
                                 </button>
                             </td>
                         </tr>
@@ -398,12 +404,14 @@
                                 20/07/2022 12:12:12 PM
                             </td>
                             <td>
-                                <input checked="checked" class="check-box" type="checkbox">
+                                <input checked="checked" class="check-box" type="checkbox" disabled="disabled">
                             </td>
                             <td>
                                 <button class="btn btn-primary" title="Edit" href=""
+
                                     onclick="window.location.href='add-question.html'">
-                                    Modify
+                                    Edit
+
                                 </button>
                             </td>
                         </tr>
@@ -422,12 +430,14 @@
                                 20/07/2022 12:12:12 PM
                             </td>
                             <td>
-                                <input checked="checked" class="check-box" type="checkbox">
+                                <input checked="checked" class="check-box" type="checkbox" disabled="disabled">
                             </td>
                             <td>
                                 <button class="btn btn-primary" title="Edit" href=""
+
                                     onclick="window.location.href='add-question.html'">
-                                    Modify
+                                    Edit
+
                                 </button>
                             </td>
                         </tr>
@@ -446,12 +456,14 @@
                                 20/07/2022 12:12:12 PM
                             </td>
                             <td>
-                                <input checked="checked" class="check-box" type="checkbox">
+                                <input checked="checked" class="check-box" type="checkbox" disabled="disabled">
                             </td>
                             <td>
                                 <button class="btn btn-primary" title="Edit" href=""
+
                                     onclick="window.location.href='add-question.html'">
-                                    Modify
+                                    Edit
+
                                 </button>
                             </td>
                         </tr>
@@ -470,12 +482,14 @@
                                 20/07/2022 12:12:12 PM
                             </td>
                             <td>
-                                <input checked="checked" class="check-box" type="checkbox">
+                                <input checked="checked" class="check-box" type="checkbox" disabled="disabled">
                             </td>
                             <td>
                                 <button class="btn btn-primary" title="Edit" href=""
+
                                     onclick="window.location.href='add-question.html'">
-                                    Modify
+                                    Edit
+
                                 </button>
                             </td>
                         </tr>
@@ -494,12 +508,14 @@
                                 20/07/2022 12:12:12 PM
                             </td>
                             <td>
-                                <input checked="checked" class="check-box" type="checkbox">
+                                <input checked="checked" class="check-box" type="checkbox" disabled="disabled">
                             </td>
                             <td>
                                 <button class="btn btn-primary" title="Edit" href=""
+
                                     onclick="window.location.href='add-question.html'">
-                                    Modify
+                                    Edit
+
                                 </button>
                             </td>
                         </tr>
@@ -518,12 +534,14 @@
                                 20/07/2022 12:12:12 PM
                             </td>
                             <td>
-                                <input checked="checked" class="check-box" type="checkbox">
+                                <input checked="checked" class="check-box" type="checkbox" disabled="disabled">
                             </td>
                             <td>
                                 <button class="btn btn-primary" title="Edit" href=""
+
                                     onclick="window.location.href='add-question.html'">
-                                    Modify
+                                    Edit
+
                                 </button>
                             </td>
                         </tr>
@@ -542,15 +560,17 @@
                                 20/07/2022 12:12:12 PM
                             </td>
                             <td>
-                                <input checked="checked" class="check-box" type="checkbox">
+                                <input checked="checked" class="check-box" type="checkbox" disabled="disabled">
                             </td>
                             <td>
                                 <button class="btn btn-primary" title="Edit" href=""
+
                                     onclick="window.location.href='add-question.html'">
-                                    Modify
+                                    Edit
+
                                 </button>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
         
@@ -604,6 +624,18 @@
     
           // Your code to run since DOM is loaded and ready
         });
+
+        $(window).resize(function()
+    {
+    var $theWindowSize = $(this).width();
+    if($theWindowSize < 500)
+        {
+        $('#questionCardDiv').css('min-width','min-content');
+        }
+        else{
+          $('#questionCardDiv').css('max-width','-webkit-fill-available');
+        }
+    });
       </script>
  
     <!-- Optional JavaScript; choose one of the two! -->
