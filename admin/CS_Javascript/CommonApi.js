@@ -283,8 +283,9 @@ const submitHandler = () => {
   );
   let questIds = questionArr.toString();
 
-  if (questionArr.toString() === "") {
-    alert("Please select end time...");
+
+  if (questionArr.toString()  === "") {
+    alert("Please Select Questions First");
   } else {
     const exam_data = {
       iTestId: Testid,
