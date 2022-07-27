@@ -115,6 +115,7 @@ if (pathname === "/admin/exam-details.html") {
 }
 // Add question
 const addQuestion = () => {
+    x = document.getElementById('question_type').value;
     var enter_description = document.getElementById("summernote").value;
   
     var enter_category = document.getElementById("getCategory").value;
@@ -124,6 +125,7 @@ const addQuestion = () => {
   
     option_value = [];
     correct_answer = [];
+    if(x=='radio' || x == 'check'){
     for (let i = 0; i < 4; i++) {
       option = document.getElementById(`${i}`).value;
   
@@ -140,15 +142,32 @@ const addQuestion = () => {
   option_value_update = option_value.toString();
   correct_answer_update = correct_answer.toString();
   console.log('new ANSWER IN STRING',option_value_update)
+    }   
+else if(x=='bool'){
+    for(let i=0;i<2;i++){
+    option = document.getElementById(`k${i}`).value;
+    btn_on = document.getElementById(`k${i}`).checked;
+    if(btn_on == true){
+        correct_answer.push(option);
+    }
+    option_value.push(option);
+    option_value_update = option_value.toString();
+  correct_answer_update = correct_answer.toString();
+  console.log('new ANSWER IN STRING',option_value_update);
   
-    const add = {
-      tQuestionText: enter_description,
-      eQuestionType: question_type,
-      iCategoryId: enter_category,
-      vMarks: question_marks,
-      vOption: option_value_update,
-      vAnswer: correct_answer_update,
-    };
+}
+
+}
+const add = {
+    tQuestionText: enter_description,
+    eQuestionType: question_type,
+    iCategoryId: enter_category,
+    vMarks: question_marks,
+    vOption: option_value_update,
+    vAnswer: correct_answer_update,
+  };
+
+
   let data =JSON.stringify(add)
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST", "http://192.168.1.28/EXAMPANEL/admin/addQuestion", true);

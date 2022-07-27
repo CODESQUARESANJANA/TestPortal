@@ -39,6 +39,34 @@ function AddOpt(){
         // document.getElementById('question_type').disabled = true;
     }
     }
+    else if(x=="bool"){
+      for(let i=0;i<1;i++){
+        document.getElementById("Multiple_Options").innerHTML += `<div style="font-weight:bold">Options</div>
+        <div class="d-flex">
+          <div style="padding:2%">
+          
+          <input type="radio" id='k${i}' name="bool"value="true" >true</div> 
+        
+          
+         
+        </div>`
+        // document.getElementById('question_type').disabled = true;
+    }
+    for(let i=1;i<2;i++){
+      document.getElementById("Multiple_Options").innerHTML += `<div style="font-weight:bold">Options</div>
+        <div class="d-flex">
+
+         
+          <div style="padding:2%">
+          
+          <input type="radio" id='k${i}' name="bool" value="false" >false</div> 
+          
+         
+        </div>`
+
+    }
+
+    }
 
 
     // if(x=="True&False"){
