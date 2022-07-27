@@ -28,6 +28,7 @@
 </head>
 
 <body>
+   
     <div class="container">
         <div class="row colorPrimary">
             <div class="col-md-12 p-3 text-white text-center">
@@ -78,11 +79,17 @@
                 <h6><strong>Consent</strong></h6>
 
                 <p>
-                    By using our website, you hereby consent to our disclaimer and agree to its terms.
+                    By using our website, you hereby consent to our disclaimer and agree to its terms. <br>
+                    <span class="float-right"><button id="start-camera" class="btn btn-outline-warning">Start Camera</button>
+                    <video id="video" width="100px" height="100px" autoplay></video>
+                    <button id="click-photo" class="btn btn-outline-info">Click Photo</button>
+                    <canvas id="canvas" width="100px" height="100px"></canvas></span>
                 </p>
 
                 <h6><strong>Update</strong></h6>
-
+                <div class="d-flex">
+                    
+                </div>
                 <p>
                     Should we update, amend or make any changes to this document, those changes will be prominently posted
                 here.
@@ -96,6 +103,7 @@
             </div>
         </div>
         <div class="row colorPrimary mt-4">
+            
             <div class="col-md-12 d-flex justify-content-end p-3 ">
                 <button  disabled id="StartNowButton" class="btn" style="background-color:white;color: rgb(0,131,179)">Start now</button>
             </div>
@@ -103,14 +111,24 @@
     </div>
 <script>
 
+
+
 // $(document).ready(function(){
-          
+    function disableBack() { window.history.forward() }
+
+window.onload = disableBack();
+window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
+
           $('#StartNowButton').click(()=>{
               window.location.href="questionpage.html"
+
+
+              
           })
     //   })
              
 // Demo using plain javascript
+
 var button = document.getElementById("StartNowButton");
 var checkbox = document.getElementById("checkBoxButton");
 
@@ -118,13 +136,54 @@ var checkbox = document.getElementById("checkBoxButton");
 /* button.disabled = true; */
 
 //add event listener
-checkbox.addEventListener('click', function(event) {
-    button.disabled = !button.disabled;
-});
+document.getElementById("click-photo").addEventListener("click",check);
+function check(){
+    if( document.getElementById("start-camera").click){
+        if(document.getElementById("click-photo").click){
+             checkbox.addEventListener('click', function(event) {
+                  button.disabled = !button.disabled;
+                });
+        }
+
+       
+    }
+    
+}
+
+
+
+    // if(!click-photo)
+    // if(document.getElementById("canvas")==!null){
+      
+    // }
+            
+    // }
+
+
 
 /* button.addEventListener('click', function(event) {
     alert('Enabled!');
+
 }); */
+
+
+let camera_button = document.querySelector("#start-camera");
+let video = document.querySelector("#video");
+let click_button = document.querySelector("#click-photo");
+let canvas = document.querySelector("#canvas");
+
+camera_button.addEventListener('click', async function() {
+   	let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+	video.srcObject = stream;
+});
+
+click_button.addEventListener('click', function() {
+   	canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+   	let image_data_url = canvas.toDataURL('image/jpeg');
+
+   	// data url of the image
+   	console.log(image_data_url);
+});
 </script>
     <!-- Optional JavaScript; choose one of the two! -->
 
