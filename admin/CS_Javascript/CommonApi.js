@@ -227,7 +227,7 @@ function GetAllQuestions() {
                 Edit
             </button>
 
-            <button class="btn btn-danger" title="Edit" href=""
+            <button class="btn btn-danger" id="delete_Que" title="Edit" href=""
                 onclick="window.location.href='">
                 Delete
             </button>
@@ -244,3 +244,33 @@ function GetAllQuestions() {
 
 
 GetAllQuestions();
+
+
+//Delete Questions from Question box//
+
+var pathname = window.location.pathname.toString();
+console.log("pathname-", pathname);
+
+function DeleteQuestions() {
+  console.log("cmjk")
+  $("#delete_Que").click(function(){
+    $.ajax({
+  url: "http://192.168.1.28/EXAMPANEL/admin/deleteQuestion",
+  type: "POST",
+  headers: {
+    "Authorization" : `${cookie.token}`
+  },
+  data: {} ,   
+  success: function(data)
+  {
+    console.log(data);
+   
+  }
+})
+  })
+
+}
+
+
+DeleteQuestions();
+
