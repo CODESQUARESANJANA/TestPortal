@@ -7,7 +7,7 @@ function GetCategory() {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             var category = JSON.parse(this.responseText);
-            if (pathname === "/category-details.html") {
+            if (pathname === "/admin/category-details.html") {
                 category.forEach(element => {
                     document.getElementById("category_data").innerHTML += `
           <tr>
@@ -41,7 +41,7 @@ function GetCategory() {
     };
     xhttp.send();
 }
-if (pathname === "/category-details.html" || pathname === "/add-question.html") {
+if (pathname === "/admin/category-details.html" || pathname === "/add-question.html") {
     GetCategory()
 }
 const CreateExam = () => {
@@ -110,6 +110,6 @@ const GetExamDetails = () => {
     };
     xhttp.send();
 }
-if (pathname === "/exam-details.html") {
+if (pathname === "/admin/exam-details.html") {
     GetExamDetails()
 }
