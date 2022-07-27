@@ -71,6 +71,13 @@
                   <!-- <button type="submit" class="bg-primary  btn-block">Submit</button> -->
                   <!-- </div> -->
                 </div>
+                <div class="row mt-4 pt-2">
+                  <!-- <div class="mt-4 pt-2"> -->
+                <h5> Don't have account?<a href="html/registration.html">Create new account</a></h5>
+
+                  <!-- <button type="submit" class="bg-primary  btn-block">Submit</button> -->
+                  <!-- </div> -->
+                </div>
               </form>
             </div>
           </div>
@@ -125,7 +132,7 @@
           document.cookie = "token=" + response.token;
           if (response.success == true) {
            if (response.user_type == "user") {
-             /*  window.location.href = './description.html'; */
+             window.location.href = './description.html';
            } else {
             window.location.href = '../../admin/index.html';
            }

@@ -6,7 +6,7 @@ $(document).ready(function(){
    
     
     $('#showResult').click(()=>{
-        window.location.href="result_detail.html"
+        window.location.href="../html/result_detail.html"
     })
     history.pushState(null, null, document.URL);
 window.addEventListener('popstate', function () {
