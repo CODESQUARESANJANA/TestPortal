@@ -113,3 +113,59 @@ const GetExamDetails = () => {
 if (pathname === "/admin/exam-details.html") {
     GetExamDetails()
 }
+// Add question
+const addQuestion = () => {
+    var enter_description = document.getElementById("summernote").value;
+  
+    var enter_category = document.getElementById("getCategory").value;
+    var question_type = document.getElementById("question_type").value;
+    // var enter_options = document.getElementById('').value ;
+    var question_marks = document.getElementById("enter_marks").value;
+  
+    option_value = [];
+    correct_answer = [];
+    for (let i = 0; i < 4; i++) {
+      option = document.getElementById(`${i}`).value;
+  
+      btn_on = document.getElementById(`k${i}`).checked;
+  
+      if (btn_on == true) {
+        correct_answer.push(option);
+      }
+      option_value.push(option);
+    }
+  console.log("val",option_value)
+  console.log("checked",correct_answer)
+  
+  option_value_update = option_value.toString();
+  correct_answer_update = correct_answer.toString();
+  console.log('new ANSWER IN STRING',option_value_update)
+  
+    const add = {
+      tQuestionText: enter_description,
+      eQuestionType: question_type,
+      iCategoryId: enter_category,
+      vMarks: question_marks,
+      vOption: option_value_update,
+      vAnswer: correct_answer_update,
+    };
+  let data =JSON.stringify(add)
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "http://192.168.1.28/EXAMPANEL/admin/addQuestion", true);
+    xhttp.setRequestHeader(
+      "Authorization",
+      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2RhdGEiOnsiaVVzZXJJZCI6IjEiLCJ2Rmlyc3ROYW1lIjoiQWFzaHV0b3NoIiwidkxhc3ROYW1lIjoiTmFtZGVvIiwiZUdlbmRlciI6Im1hbGUiLCJ2RW1haWwiOiJhYXNodXRvc2gubmFtZGVvQGNvZGVzcXVhcmV0ZWNoLmNvbSIsInZQYXNzd29yZCI6ImUxMGFkYzM5NDliYTU5YWJiZTU2ZTA1N2YyMGY4ODNlIiwidlBob25lTm8iOiI3MDQ5MjQ2NDIwIiwidlByb2ZpbGVQaWMiOm51bGwsImlBZGRlZEJ5IjoiMCIsImlVcGRhdGVkQnkiOiIwIiwiZHRBZGRlZERhdGUiOiIyMDIyLTA3LTIxIDE2OjEyOjU4IiwiZHRVcGRhdGVkRGF0ZSI6bnVsbCwiZVN0YXR1cyI6IkFjdGl2ZSJ9LCJ1c2VyX3R5cGUiOiJhZG1pbiIsIkFQSV9USU1FIjoxNjU4ODM4Mjc5fQ.yZWmYebYkXDEnyfrDNPb_DlypthNzISRRMqEoy7SPd4"
+    );
+    //    xhttp.setRequestHeader("Access-Control-Allow-Origin","*")
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+      } 
+      
+      window.location.href = "http://127.0.0.1:444/add-question.html"
+  
+  
+    };
+  
+    xhttp.send(data);
+    // window.location.reload();
+  };
