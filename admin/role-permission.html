@@ -277,57 +277,41 @@
     </div>
     <!--Container Main start-->
     <div class="" style="padding-top: 60px; ">
-        <div style="border-bottom: 1px solid #dfdfdf;">
-            <p class="pt-3" style="padding-left: 10px;">Exam modal</p>
-        </div>
-        <div class="p-3">
-            <div class="row my-2">
-                <div class="col-6">
-                    <label class="fw-bold" for="">Name</label>
-                    <input type="text" id="exam_name" class="form-control">
-                </div>
-                <div class="col-6">
-                    <label class="fw-bold" for="">Code</label>
-                    <input type="text" id="exam_code" class="form-control">
-                </div>
-            </div>
-            <div class="my-2">
-                <label class="fw-bold" for="">Description</label>
-                <div class="email editor">
-                    <div class="col-md-12 p-0">
-                        <div class="form-group">
-                            <label class="control-label sr-only" for="summernote">Descriptions </label>
-                            <textarea class="form-control" id="summernote" name="editordata" rows="6"
-                                placeholder="Write Descriptions"></textarea>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row my-2">
-                <div class="col-6">
-                    <label class="fw-bold" for="">Start Date</label>
-                    <input type="date" id="exam_start_time" class="form-control">
-                </div>
-                <div class="col-6">
-                    <label class="fw-bold" for="">End Date</label>
-                    <input type="date" id="exam_end_time" class="form-control">
-                </div>
-            </div>
-            <div class="row my-2">
-                <div class="col-6">
-                    <label class="fw-bold" for="">Exam Instruction</label>
-                    <textarea id="exam_instruction" class="form-control"></textarea>
-                </div>
-                <div class="col-6">
-                    <label class="fw-bold" for="">Exam Duration(min)</label>
-                    <input id="exam_duration" type="number" class="form-control"></input>
-                </div>
-            </div>
-            <button class="btn btn-light border my-2" type="button" onclick="CreateExam()">Save</button>
-        </div>
-        <div class="bg-light">
-            <p class="text-primary py-3" style="padding-left: 15px; cursor: pointer;">Back to list</p>
-        </div>
+        <table id="example" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Permission Id</th>
+                    <th>Permission Name</th>
+
+                    <th>Status</th>
+                    <th>#</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>Tiger Nixon</td>
+                    <td>System Architect</td>
+                    <td>
+                        <span class="badge badge-secondary" style="background-color: green">
+                            Active
+                        </span>
+                    </td>
+                    <td>
+                        <!-- <button class="btn btn-warning btn-sm" onclick="window.location.href='#'">
+                            Edit
+                        </button> -->
+                        <button class="btn btn-success btn-sm " style="background-color: #17A2B8;">
+                           Delete
+                        </button>
+                    </td>
+                </tr>
+            
+
+            </tbody>
+
+        </table>
     </div>
     <script src="/asstes/vendor/jquery/jquery-3.3.1.min.js"></script>
     <script src="/asstes/vendor/bootstrap/js/bootstrap.bundle.js"></script>
@@ -335,6 +319,24 @@
     <script src="/asstes/vendor/select2/js/select2.min.js"></script>
     <script src="/asstes/vendor/summernote/js/summernote-bs4.js"></script>
     <script src="/asstes/libs/js/main-js.js"></script>
+
+    <!-- permission table cdn -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.bootstrap5.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js"></script>
+
     <script>
         $(document).ready(function () {
             $('.js-example-basic-multiple').select2({ tags: true });
@@ -347,6 +349,15 @@
 
             });
         });
+        $(document).ready(function () {
+            var table = $('#example').DataTable({
+                lengthChange: false,
+                buttons: ['copy', 'excel', 'pdf', 'colvis']
+            });
+
+            table.buttons().container()
+                .appendTo('#example_wrapper .col-md-6:eq(0)');
+        })
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function (event) {

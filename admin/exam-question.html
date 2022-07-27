@@ -10,6 +10,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <title>Question details</title>
+    <script src="/admin/CS_Javascript/CommonApi.js"></script>
+      <script>
+         
+          $(function () {
+              $('.check').on('click', function () {
+                  $("input[type=checkbox]").prop('checked', $(this).prop('checked'));
+              })
+          })
+      </script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
     
@@ -267,7 +276,7 @@
             <div class="col" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
               <div class="card">
                   <div class="card-header d-flex justify-content-between">
-                    <div><strong>Exams Questions</strong></div> <div class="d-flex mr-1"><a href="page.html" class="btn btn-success btn-sm" style="background-color:  #28a745;">Add Questions</a></div>
+                    <div><strong>Exams Questions</strong></div> <div class="d-flex mr-1"><button   id="btn" class="btn btn-success btn-sm" style="background-color:  #28a745;" onclick="submitHandler()">Add Questions</button></div>
                   </div>  
           
                   <div class="card-body">
@@ -278,43 +287,16 @@
                       <table  class="table table-hover table-responsive table-sm" style="font-size: 14px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
                           <thead>
                             <tr>
-                              <th scope="col">Order</th>
+                              <th scope="col">S.N.</th>
+                              <th scope="col">Check</th>
                               <th scope="col">Question</th>
-                              <th scope="col">Marks</th>
+                              <th scope="col">Category</th>
+                              <th scope="col">Type</th>
                               <th></th>
                             </tr>
                           </thead>
-                          <tbody>
-                            <tr>
-                              <td>2</td>
-                              <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, totam!</td>
-                              <td>2</td>
-                              <td class="d-flex mr-1"><button class="btn btn-danger btn-sm">delete</button></td>
-                            </tr>
-                            <tr>
-                              <td>1</td>
-                              <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, totam!</td>
-                              <td>1</td>
-                              <td class="d-flex mr-1"><button class="btn btn-danger btn-sm">delete</button></td>
-                            </tr>
-                            <tr>
-                              <td>1</td>
-                              <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, totam!</td>
-                              <td>1</td>
-                              <td class="d-flex mr-1"><button class="btn btn-danger btn-sm">delete</button></td>
-                            </tr>
-                            <tr>
-                              <td>1</td>
-                              <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, totam!</td>
-                              <td>1</td>
-                              <td class="d-flex mr-1"><button class="btn btn-danger btn-sm">delete</button></td>
-                            </tr>
-                            <tr>
-                              <td>1</td>
-                              <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, totam!</td>
-                              <td>1</td>
-                              <td class="d-flex mr-1"><button class="btn btn-danger btn-sm">delete</button></td>
-                            </tr>
+                          <tbody id="exam_question_data">
+                          
                            <!--   -->
                           </tbody>
                         </table> 
