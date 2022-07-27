@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"
+    integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+
+  <section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100 ">
+      <div class="row justify-content-center align-items-center h-100 ">
+        <div class="col-12 col-lg-9 col-xl-7">
+          <div class="card shadow-2-strong card-registration shadow-lg p-3 mb-1 bg-body rounded"
+            style="border-radius: 15px;">
+            <div class="card-body p-4 p-md-5">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center" style="color: #5193f2;">Sign in</h3>
+              <form id="frm">
+                <div class="row">
+                  <div class="col-md-12 mb-4 pb-2">
+
+                    <div class="form-outline">
+                      <input class="form-control shadow-sm bg-body rounded" type="email" name="vEmail" id="email_feild"
+                        placeholder="Enter Your Email"
+                        style="text-align: center; width:27%; border-radius: 5px; height: 57px; border: none; width: 100%; border-bottom: solid 2px;">
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="row">
+                  <div class="col-12 d-flex">
+
+                    <input class="form-control shadow-sm bg-body rounded" type="password" name="vPassword"
+                      id="passWord_field" placeholder="Enter Your Password"
+                      style="text-align: center; width:27%; border-radius: 5px; height: 57px; border: none; width: 100%; border-bottom: solid 2px;">
+                    <i class="bi bi-eye-slash" id="togglePassword" style="margin-left: -21px; cursor:pointer;"></i>
+
+                  </div>
+
+                </div>
+
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                    <label class="form-check-label" for="invalidCheck" style="font-size: small;">
+                      Remember Me
+                    </label>
+
+                  </div>
+                </div>
+
+
+
+                <div class="row mt-4 pt-2">
+                  <!-- <div class="mt-4 pt-2"> -->
+                  <button type="button" class="btn btn-primary btn-block border-round" id="UserLogin"
+                    style="background-color: #5193f2;" onclick="Verify()">Login</button>
+
+                  <!-- <button type="submit" class="bg-primary  btn-block">Submit</button> -->
+                  <!-- </div> -->
+                </div>
+                <div class="row mt-4 pt-2">
+                  <!-- <div class="mt-4 pt-2"> -->
+                <h5> Don't have account?<a href="html/registration.html">Create new account</a></h5>
+
+                  <!-- <button type="submit" class="bg-primary  btn-block">Submit</button> -->
+                  <!-- </div> -->
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script type="text/javascript">
+    //  $(document).ready(function(){
+
+    // $('#UserLogin').click(()=>{
+    //     window.location.href="description.html"
+    // })
+    // })
+
+
+    let regestration_data = [];
+    const addData = (function (element) {
+      element.preventDefault();
+      let data = {
+        fname: document.getElementById("first_name").value,
+        lname: document.getElementById("last_name").value,
+      }
+    })
+
+    const togglePassword = document.querySelector("#togglePassword");
+    const password = document.querySelector("#password", "#password2");
+    togglePassword.addEventListener("click", function () {
+      // toggle the type attribute
+      const type = password.getAttribute("type") === "password" ? "text" : "password";
+      password.setAttribute("type", type);
+
+      // toggle the icon
+      this.classList.toggle("bi-eye");
+    });
+
+    // prevent form submit
+    const form = document.querySelector("form");
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+    });
+
+    function Verify() {
+      $.ajax({
+        url: 'http://192.168.1.28/EXAMPANEL/login',
+        method: 'POST',
+        data: $('#frm').serialize(),//if we not and to value by id --> json format value got
+        success: function (response) {
+
+          console.log(response);
+          document.cookie = "token=" + response.token;
+          if (response.success == true) {
+           if (response.user_type == "user") {
+             window.location.href = './description.html';
+           } else {
+            window.location.href = '../../admin/index.html';
+           }
+          }
+          else {
+            alert(response.message);
+          }
+
+        },
+        error: function (response) {
+          console.log(response)
+
+        }
+      });
+    };
+
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+    integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
