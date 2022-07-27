@@ -198,7 +198,7 @@ function GetAllQuestions() {
       if (data.success==true) {
        data.data.forEach((element)=>{
         //console.log("dfsd",element)
-        document.getElementById("question_data").innerHTML += `<tr>
+        document.getElementById("question_data1").innerHTML += `<tr>
         <td>
             ${element.iQuestionId}
         </td>
@@ -217,9 +217,19 @@ function GetAllQuestions() {
         </td>
         
         <td>
-            <button class="btn btn-warning" title="Edit" href=""
+            <button class="btn btn-primary" title="Edit" href=""
+                onclick="window.location.href="">
+                View
+            </button>
+
+            <button class="btn btn-warning" title="Edit" href='"
                 onclick="window.location.href='/admin/add-question.html'">
                 Edit
+            </button>
+
+            <button class="btn btn-danger" title="Edit" href=""
+                onclick="window.location.href='">
+                Delete
             </button>
 
         </td>
@@ -229,4 +239,8 @@ function GetAllQuestions() {
     }
   })
 }
-// GetCategory();
+
+
+
+
+GetAllQuestions();
