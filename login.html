@@ -73,7 +73,11 @@
                 </div>
                 <div class="row mt-4 pt-2">
                   <!-- <div class="mt-4 pt-2"> -->
+<<<<<<< HEAD
                 <h5> Don't have account?<a href="html/registration.html">Create new account</a></h5>
+=======
+                <h5> Don't have account?<a href="./user/html/registration.html">Create new account</a></h5>
+>>>>>>> 24c2649ed49066c727d6e2f9374c60150cfe98ce
 
                   <!-- <button type="submit" class="bg-primary  btn-block">Submit</button> -->
                   <!-- </div> -->
@@ -132,9 +136,15 @@
           document.cookie = "token=" + response.token;
           if (response.success == true) {
            if (response.user_type == "user") {
+<<<<<<< HEAD
              window.location.href = '/description.html';
            } else {
             window.location.href = '../../admin/index.html';
+=======
+             window.location.href = "./user/html/description.html";
+           } else {
+            window.location.href = './admin/index.html';
+>>>>>>> 24c2649ed49066c727d6e2f9374c60150cfe98ce
            }
           }
           else {
