@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <title>Exam details</title>
+    <script src="/admin/CS_Javascript/CommonApi.js"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
     
@@ -282,184 +283,17 @@
                             <thead style="justify-content: center;">
                               <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Image</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Code</th>
-                                <th scope="col">Total Minutes</th>
+                                <th scope="col">Instruction</th>
                                 <th scope="col"style="text-align: center;">Exam Date</th>
-                                <th scope="col" style="text-align: center;">Result</th>
+                                <th scope="col"style="text-align: center;">End Date</th>
                                 <th scope="col" style="text-align: center;">#</th>
                               </tr>
                             </thead>
-                            <tbody>
-                              <tr style="font-size: 14px;">
-                                <td scope="row">2</td>
-                                <td></td>
-                                <td>MCQUIZ</td>
-                                <td>MCQ</td>
-                                <td style="text-align: center;">30</td>
-                                <td>2021-Sep-16 12:00 AM</td>
-                                <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;" onclick="window.location.href='result-page.html'">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;" onclick="window.location.href='result-page.html'"> <span class="p-3">Results</span> </button></td>
-                                <td class="d-flex mr-1" ><button class="btn btn-secondary btn-sm mx-2"   style="background-color: #f8f9fa; color:#444; font-size: 12px;" onclick="window.location.href='exam-question.html'">Questions</button><button class="btn btn-warning btn-sm " style="font-size: 12px;" onclick="window.location.href='add-exam-detail.html'">Edit</button></td>
-                              </tr>
-                              <tr style="font-size: 14px;">
-                                <td scope="row">3</td>
-                                <td></td>
-                                <td>Gk</td>
-                                <td>Gk123</td>
-                                <td style="text-align: center;">10</td>
-                                <td>2021-May-21 12:00 AM</td>
-                                <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;" onclick="window.location.href='result-page.html'">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;" onclick="window.location.href='result-page.html'"> <span class="p-3">Results</span> </button></td>
-                                <td class="d-flex mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;" onclick="window.location.href='exam-question.html'">Questions</button><button class="btn btn-warning btn-sm " style="font-size: 12px;" onclick="window.location.href='add-exam-detail.html'">Edit</button></td>
-                              </tr>
-                              <tr style="justify-content:center; font-size: 14px;">
-                                <td scope="row">4</td>
-                                <td></td>
-                                <td>Online</td>
-                                <td>Online</td>
-                                <td style="text-align: center;">6</td>
-                                <td>2021-May-20 12:00 AM</td>
-                                <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;" onclick="window.location.href='result-page.html'">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;" onclick="window.location.href='result-page.html'"> <span class="p-3">Results</span> </button></td>
-                                <td class=" mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;" onclick="window.location.href='exam-question.html'">Questions</button><button class="btn btn-warning btn-sm " style="font-size: 12px;" onclick="window.location.href='add-exam-detail.html'">Edit</button></td>
-                              </tr>
-                                <tr style="justify-content:center; font-size: 14px;">
-                                  <td scope="row">5</td>
-                                  <td></td>
-                                  <td>Online</td>
-                                  <td>Online</td>
-                                  <td style="text-align: center;">5</td>
-                                  <td>2021-May-20 12:00 AM</td>
-                                  <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;" onclick="window.location.href='result-page.html'">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;" onclick="window.location.href='result-page.html'"> <span class="p-3">Results</span> </button></td>
-                                  <td class=" mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;" onclick="window.location.href='exam-question.html'">Questions</button><button class="btn btn-warning btn-sm " style="font-size: 12px;" onclick="window.location.href='add-exam-detail.html'">Edit</button></td>
-                                </tr>
-                                  <tr style="justify-content:center;font-size: 14px;">
-                                    <td scope="row">6</td>
-                                    <td></td>
-                                    <td>Online</td>
-                                    <td>Online123</td>
-                                    <td style="text-align: center;">4</td>
-                                    <td>2021-May-20 12:00 AM</td>
-                                    <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;" onclick="window.location.href='result-page.html'">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;" onclick="window.location.href='result-page.html'"> <span class="p-3">Results</span> </button></td>
-                                    <td class=" mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;" onclick="window.location.href='exam-question.html'">Questions</button><button class="btn btn-warning btn-sm " style="font-size: 12px;" onclick="window.location.href='add-exam-detail.html'">Edit</button></td>
-                                    </tr>
-                                    <tr style="justify-content:center; font-size: 14px;">
-                                      <td scope="row">7</td>
-                                      <td></td>
-                                      <td>Online</td>
-                                      <td>Online</td>
-                                      <td style="text-align: center;">3</td>
-                                      <td>2021-May-20 12:00 AM</td>
-                                      <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;" onclick="window.location.href='result-page.html'">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;" onclick="window.location.href='result-page.html'"> <span class="p-3">Results</span> </button></td>
-                                      <td class=" mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;" onclick="window.location.href='exam-question.html'">Questions</button><button class="btn btn-warning btn-sm " style="font-size: 12px;" onclick="window.location.href='add-exam-detail.html'">Edit</button></td>
-                                      </tr>
-                                      <tr style="justify-content:center;font-size: 14px;">
-                                        <td scope="row">8</td>
-                                        <td></td>
-                                        <td>Online</td>
-                                        <td>Online</td>
-                                        <td style="text-align: center;">2</td>
-                                        <td>2021-May-20 12:00 AM</td>
-                                        <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;" onclick="window.location.href='result-page.html'">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;" onclick="window.location.href='result-page.html'"> <span class="p-3">Results</span> </button></td>
-                                        <td class=" mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;" onclick="window.location.href='exam-question.html'">Questions</button><button class="btn btn-warning btn-sm " style="font-size: 12px;" onclick="window.location.href='add-exam-detail.html'">Edit</button></td>
-                                        </tr>
-    
-    
-    
-    
-                                        
-    
-    
-    
-                                        
-                                        
-    
-                                        
-                                        <tr style="justify-content:center; font-size: 14px;">
-                                          <td scope="row">9</td>
-                                          <td></td>
-                                          <td>Online</td>
-                                          <td>Online</td>
-                                          <td style="text-align: center;">2</td>
-                                          <td>2021-May-20 12:00 AM</td>
-                                          <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;" onclick="window.location.href='result-page.html'">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;" onclick="window.location.href='result-page.html'"> <span class="p-3">Results</span> </button></td>
-                                          <td class=" mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;" onclick="window.location.href='exam-question.html'">Questions</button><button class="btn btn-warning btn-sm " style="font-size: 12px;" onclick="window.location.href='add-exam-detail.html'">Edit</button></td>
-                                        </tr>
-                                        <tr style="font-size: 14px;">
-                                          <td scope="row">10</td>
-                                          <td></td>
-                                          <td>Gk</td>
-                                            <td>Gk123</td>
-                                            <td style="text-align: center;">10</td>
-                                            <td>2021-May-21 12:00 AM</td>
-                                            <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;" onclick="window.location.href='result-page.html'">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;" onclick="window.location.href='result-page.html'"> <span class="p-3">Results</span> </button></td>
-                                            <td class="d-flex mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;" onclick="window.location.href='exam-question.html'">Questions</button><button class="btn btn-warning btn-sm " style="font-size: 12px;" onclick="window.location.href='add-exam-detail.html'">Edit</button></td>
-                                          </tr>
-                                          <tr style="font-size: 14px;">
-                                            <td scope="row">11</td>
-                                            <td></td>
-                                            <td>Gk</td>
-                                            <td>Gk123</td>
-                                            <td style="text-align: center;">10</td>
-                                            <td>2021-May-21 12:00 AM</td>
-                                            <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;" onclick="window.location.href='result-page.html'">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;" onclick="window.location.href='result-page.html'"> <span class="p-3">Results</span> </button></td>
-                                            <td class="d-flex mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;" onclick="window.location.href='exam-question.html'">Questions</button><button class="btn btn-warning btn-sm " style="font-size: 12px;" onclick="window.location.href='add-exam-detail.html'">Edit</button></td>
-                                          </tr>
-                                          <tr style="font-size: 14px;">
-                                            <td scope="row">12</td>
-                                            <td></td>
-                                            <td>Gk</td>
-                                            <td>Gk123</td>
-                                            <td style="text-align: center;">10</td>
-                                            <td>2021-May-21 12:00 AM</td>
-                                            <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;" onclick="window.location.href='result-page.html'">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;" onclick="window.location.href='result-page.html'"> <span class="p-3">Results</span> </button></td>
-                                            <td class="d-flex mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;" onclick="window.location.href='exam-question.html'">Questions</button><button class="btn btn-warning btn-sm " style="font-size: 12px;" onclick="window.location.href='add-exam-detail.html'">Edit</button></td>
-                                          </tr>
-                                          <tr style="font-size: 14px;">
-                                            <td scope="row">13</td>
-                                            <td></td>
-                                            <td>Gk</td>
-                                            <td>Gk123</td>
-                                            <td style="text-align: center;">10</td>
-                                            <td>2021-May-21 12:00 AM</td>
-                                            <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;" onclick="window.location.href='result-page.html'">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;" onclick="window.location.href='result-page.html'"> <span class="p-3">Results</span> </button></td>
-                                            <td class="d-flex mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;" onclick="window.location.href='exam-question.html'">Questions</button><button class="btn btn-warning btn-sm " style="font-size: 12px;" onclick="window.location.href='add-exam-detail.html'">Edit</button></td>
-                                          </tr>
-                                          <tr style="font-size: 14px;">
-                                            <td scope="row">14</td>
-                                            <td></td>
-                                            <td>Gk</td>
-                                            <td>Gk123</td>
-                                            <td style="text-align: center;">10</td>
-                                            <td>2021-May-21 12:00 AM</td>
-                                            <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;" onclick="window.location.href='result-page.html'">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;" onclick="window.location.href='result-page.html'"> <span class="p-3">Results</span> </button></td>
-                                            <td class="d-flex mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;" onclick="window.location.href='exam-question.html'">Questions</button><button class="btn btn-warning btn-sm " style="font-size: 12px;" onclick="window.location.href='add-exam-detail.html'">Edit</button></td>
-                                          </tr>
-                                          <tr style="font-size: 14px;">
-                                            <td scope="row">15</td>
-                                            <td></td>
-                                            <td>Gk</td>
-                                            <td>Gk123</td>
-                                            <td style="text-align: center;">10</td>
-                                            <td>2021-May-21 12:00 AM</td>
-                                            <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;" onclick="window.location.href='result-page.html'">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;" onclick="window.location.href='result-page.html'"> <span class="p-3">Results</span> </button></td>
-                                            <td class="d-flex mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;" onclick="window.location.href='exam-question.html'">Questions</button><button class="btn btn-warning btn-sm " style="font-size: 12px;" onclick="window.location.href='add-exam-detail.html'">Edit</button></td>
-                                          </tr>
-                                          <tr style="font-size: 14px;">
-                                            <td scope="row">16</td>
-                                            <td></td>
-                                            <td>Gk</td>
-                                            <td>Gk123</td>
-                                            <td style="text-align: center;">10</td>
-                                            <td>2021-May-21 12:00 AM</td>
-                                            <td class=" mr-1" ><button class="btn btn-success btn-sm mx-2" style="background-color: #17A2B8; font-size: 12px;  max-width: 50%;" onclick="window.location.href='result-page.html'">Recheck Result</button><button class="btn btn-primary btn-sm" style="background-color: #28a745; font-size: 12px;max-width:50%;max-height: 100%;" onclick="window.location.href='result-page.html'"> <span class="p-3">Results</span> </button></td>
-                                            <td class="d-flex mr-1"><button class="btn btn-secondary btn-sm mx-2" style="background-color: #f8f9fa; color:#444; font-size: 12px;" onclick="window.location.href='exam-question.html'">Questions</button><button class="btn btn-warning btn-sm " style="font-size: 12px;" onclick="window.location.href='add-exam-detail.html'">Edit</button></td>
-                                          </tr>
-    
-                                <!-- <td><button style="background-color: #f8f9fa; color:#444 ; font-size: 12px;" class="btn btn-secondary btn-sm mx-2">Questions</button>
-                                  <button class="btn btn-warning btn-sm" style="font-size: 12px; width: 30%;">Edit</button></td> -->
-                               <!--  <td class="d-flex mr-1"><button  btn-sm mx-2" style="background-color: #f8f9fa; color:#444">Questions</button><button  btn-sm">Edit</button></td> -->
-                              </tr>
-                             <!--   -->
+                            <tbody id="exam_details_data">
+                           
+                             
                             </tbody>
                           </table> 
                         </div>
