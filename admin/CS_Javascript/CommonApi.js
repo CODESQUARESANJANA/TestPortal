@@ -60,7 +60,6 @@ const CreateExam = () => {
   let test_instruction = document.getElementById("exam_instruction").value;
   let test_start_time = document.getElementById("exam_start_time").value;
   let test_end_time = document.getElementById("exam_end_time").value;
-  let test_duration = document.getElementById("exam_duration").value
   if (test_name === "") {
     alert("Please enter exam name...");
   } else if (test_code === "") {
@@ -73,8 +72,6 @@ const CreateExam = () => {
     alert("Please select start time...");
   } else if (test_end_time === "") {
     alert("Please select end time...");
-  } else if (test_duration === "") {
-    alert("Please enter exam duration")
   } else {
     const exam_data = {
       vTestName: test_name,
@@ -83,7 +80,6 @@ const CreateExam = () => {
       dStartTestDate: test_start_time,
       dEndTestDate: test_end_time,
       vTestCode: test_code,
-      iTestDuration: test_duration
     };
     let data = JSON.stringify(exam_data);
     var xhttp = new XMLHttpRequest();
@@ -155,12 +151,6 @@ const addQuestion = () => {
   option_value_update = option_value.toString();
   correct_answer_update = correct_answer.toString();
   console.log("new ANSWER IN STRING", option_value_update);
-  console.log("val", option_value)
-  console.log("checked", correct_answer)
-
-  option_value_update = option_value.toString();
-  correct_answer_update = correct_answer.toString();
-  console.log('new ANSWER IN STRING', option_value_update)
 
   const add = {
     tQuestionText: enter_description,
@@ -170,7 +160,7 @@ const addQuestion = () => {
     vOption: option_value_update,
     vAnswer: correct_answer_update,
   };
-  let data = JSON.stringify(add)
+  let data = JSON.stringify(add);
   var xhttp = new XMLHttpRequest();
   xhttp.open("POST", "http://192.168.1.28/EXAMPANEL/admin/addQuestion", true);
   xhttp.setRequestHeader("Authorization", `${cookie.token}`);
@@ -197,7 +187,7 @@ function GetAllQuestions() {
     type: "GET",
     headers: {
       Authorization:
-        `${cookie.token}`,
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2RhdGEiOnsiaVVzZXJJZCI6IjEiLCJ2Rmlyc3ROYW1lIjoiQWFzaHV0b3NoIiwidkxhc3ROYW1lIjoiTmFtZGVvIiwiZUdlbmRlciI6Im1hbGUiLCJ2RW1haWwiOiJhYXNodXRvc2gubmFtZGVvQGNvZGVzcXVhcmV0ZWNoLmNvbSIsInZQYXNzd29yZCI6ImUxMGFkYzM5NDliYTU5YWJiZTU2ZTA1N2YyMGY4ODNlIiwidlBob25lTm8iOiI3MDQ5MjQ2NDIwIiwidlByb2ZpbGVQaWMiOm51bGwsImlBZGRlZEJ5IjoiMCIsImlVcGRhdGVkQnkiOiIwIiwiZHRBZGRlZERhdGUiOiIyMDIyLTA3LTIxIDE2OjEyOjU4IiwiZHRVcGRhdGVkRGF0ZSI6bnVsbCwiZVN0YXR1cyI6IkFjdGl2ZSJ9LCJ1c2VyX3R5cGUiOiJhZG1pbiIsIkFQSV9USU1FIjoxNjU4ODk1NjIyfQ.IQp2w-DB3VBNDjgB0KnL1CcIVaD5e4eJJyYZ4euw4zw",
     },
     data: {},
     success: function (data) {
@@ -206,9 +196,6 @@ function GetAllQuestions() {
         data.data.forEach((element) => {
           //console.log("dfsd",element)
           document.getElementById("question_data1").innerHTML += `<tr>
-        <td>
-            ${index+1}
-        </td>
         <td>
             ${element.iQuestionId}
         </td>
