@@ -218,7 +218,7 @@ function GetAllQuestions() {
         
         <td>
             <button class="btn btn-warning" title="Edit" href=""
-                onclick="window.location.href='add-question.html'">
+                onclick="window.location.href='/admin/add-question.html'">
                 Edit
             </button>
 
