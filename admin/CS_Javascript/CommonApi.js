@@ -196,9 +196,12 @@ function GetAllQuestions() {
     {
       console.log(data);
       if (data.success==true) {
-       data.data.forEach((element)=>{
+       data.data.forEach((element,index)=>{
         //console.log("dfsd",element)
         document.getElementById("question_data1").innerHTML += `<tr>
+        <td>
+            ${index+1}
+        </td>
         <td>
             ${element.iQuestionId}
         </td>
