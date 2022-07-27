@@ -114,7 +114,7 @@ const GetExamDetails = () => {
                 <td>${element.tTestInstruction}</td>
                 <td style="text-align: center;">${element.dStartTestDate}</td>
                 <td style="text-align: center;">${element.dEndTestDate}</td>
-                <td class="d-flex mr-1" ><button class="btn btn-secondary btn-sm mx-2"   style="background-color: #f8f9fa; color:#444; font-size: 12px;" onclick="window.location.href='exam-question.html'">Questions</button><button class="btn btn-warning btn-sm " style="font-size: 12px;" onclick="window.location.href='add-exam-detail.html'">Edit</button></td>
+                <td class="d-flex mr-1" ><a class="btn btn-secondary btn-sm mx-2"   style="background-color: #f8f9fa; color:#444; font-size: 12px;" href='/admin/exam-question.html?testId=${element.iTestId}' >Questions</a><button class="btn btn-warning btn-sm " style="font-size: 12px;" onclick="window.location.href='add-exam-detail.html'">Edit</button></td>
               </tr>`;
       });
     }
@@ -124,6 +124,8 @@ const GetExamDetails = () => {
 if (pathname === "/admin/exam-details.html") {
   GetExamDetails();
 }
+
+
 
 const addQuestion = () => {
     var enter_description = document.getElementById("summernote").value;
@@ -239,6 +241,78 @@ function GetAllQuestions() {
     }
   })
 }
+// GetCategory();
+
+
+const AddQuestionToTest = () => {
+ 
+
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("Get", "http://192.168.1.28/EXAMPANEL/admin/getQuestion", true);
+  xhttp.setRequestHeader("Authorization",`${cookie.token}`);
+  // xhttp.send({})
+
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      var response = JSON.parse(this.responseText);
+      console.log("res-", response);
+      response.data.forEach((element,index) => {
+        // console.log(element,"element")
+        document.getElementById("exam_question_data").innerHTML += `
+                <tr style="font-size: 14px;">
+                <td scope="row">${index+1}</td>
+                <td><input value="${element.iQuestionId}" type="checkbox" name=selectServices onchange="questionPicker(value)"/></td>
+                <td>${element.tQuestionText}</td>
+                <td>${element.vCategoryName}</td>
+                <td style="text-align: center;">${element.eQuestionType}</td>
+              </tr>`;
+      });
+    }
+  };
+  xhttp.send();
+
+}
+if (pathname === "/admin/exam-question.html") {
+  AddQuestionToTest();
+}
+
+
+  const submitHandler = () =>{
+
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const Testid = urlSearchParams.get("testId");
+  
+var questionArr =[]
+      $('#services').val($('input[name=selectServices]:checked').map(function () {
+        questionArr.push(this.value)
+      }).get());
+   let questIds = questionArr.toString()
+
+  if (questionArr.toString()  === "") {
+    alert("Please select end time...");
+  } else {
+    const exam_data = {
+      iTestId: Testid,
+      iQuestionId: questIds,
+    };
+    let data = JSON.stringify(exam_data);
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "http://192.168.1.28/EXAMPANEL/admin/addtestquestion", true);
+    xhttp.setRequestHeader("Authorization",`${ cookie.token}`);
+
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        let response = JSON.parse(this.responseText);
+        alert(response.message);
+      }
+    };
+    xhttp.send(data);
+  }
+
+  }
+
+
 
 
 
