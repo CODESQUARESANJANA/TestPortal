@@ -18,349 +18,327 @@
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <link rel="stylesheet" href="testSummary.css">
-    
-    
+    <link rel="stylesheet" href="../css/testSummary.css">
+    <script src="../javascript/question_set.js"></script>
+    <script src="../javascript/questionpage.js"></script>
 
 
-    <!-- <script> $(function () {
-        var TTimer = {
-          startedTime: new Date(),
-          restoredFromSession: false,
-          started: false,
-          minutes: 0,
-          seconds: 0,
-          tick: function tick() {
-            // Since setInterval is not reliable in inactive windows/tabs we are using date diff.
-            var diffInSeconds = Math.floor((new Date() - this.startedTime) / 1000);
-            this.minutes = Math.floor(diffInSeconds / 60);
-            this.seconds = diffInSeconds - this.minutes * 60;
-            this.render();
-            this.updateSession();
-          },
-          utilities: {
-            pad: function pad(number) {
-              return number < 10 ? "0" + number : number;
-            }
-          },
-          container: function container() {
-            return $(document);
-          },
-          render: function render() {
-            this.container()
-              .find("#timer-minutes")
-              .text(this.utilities.pad(this.minutes));
-            this.container()
-              .find("#timer-seconds")
-              .text(this.utilities.pad(this.seconds));
-          },
-          updateSession: function updateSession() {
-            sessionStorage.setItem("timerStartedTime", this.startedTime);
-          },
-          clearSession: function clearSession() {
-            sessionStorage.removeItem("timerStartedTime");
-          },
-          restoreFromSession: function restoreFromSession() {
-            // Using sessionsStorage to make the timer persistent
-            if (typeof Storage == "undefined") {
-              console.log("No sessionStorage Support");
-              return;
-            }
-      
-            if (sessionStorage.getItem("timerStartedTime") !== null) {
-              this.restoredFromSession = true;
-              this.startedTime = new Date(sessionStorage.getItem("timerStartedTime"));
-            }
-          },
-          start: function start() {
-            this.restoreFromSession();
-            this.stop();
-            this.started = true;
-            this.tick();
-            this.timerId = setInterval(this.tick.bind(this), 1000);
-          },
-          stop: function stop() {
-            this.started = false;
-            clearInterval(this.timerId);
-            this.render();
-          }
-        };
-      
-        TTimer.start();
-      });
-      </script> -->
-    <script>
-               
-    // $('#showResult').click(()=>{
-    //     window.location.href="result_detail.html"
-    //     console.log("not ");
-    // })
-        var deadline = new Date("July 25, 2022 11:40:25").getTime();
-        var x = setInterval(function () {
-            var now = new Date().getTime();
-            var t = deadline - now;
-            var days = Math.floor(t / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((t % (1000 * 60)) / 1000);
-            document.getElementById("demo").innerHTML = days + "d "
-                + hours + "h " + minutes + "m " + seconds + "s ";
-            if (t = 5000) {
-                // clearInterval(x);
-                document.getElementById("demo").style.cssText.color = "red";
-                window.location.href = "#";
-                // document.getElementById("demo").innerHTML = "EXPIRED";
-            }
-            else if (t == 0) {
-
-            }
-        }, 1000);
-        </script>
 </head>
 
-<body style="background-color: whitesmoke;">
-    <div class="container-fluid mt-3 " style="font-size: smaller;background-color: whitesmoke;">
-        <div class="row">
-            <div class="col-sm-6">
+<style>
+    @media (min-width: 768px) {
+        .col-md-3 {
+            flex: 0 0 auto;
+            width: 15%;
+        }
+    }
+</style>
 
+<body style="font-weight: 500;">
+    <div class="container-fluid mt-3 " style="font-size: smaller;background-color:#d5baeb;">
+        <div class="row">
+            <div class="container" style="background-color: #30729f;max-height: 10rem;">
+                <div class="row" style="margin-left:2% ;">
+                     <div class="col-sm-6 p-4 m-2">
+                <div class="card-header text-center text-white p-4 d-flex" style="background-color: #30729f;">
+                    <span><img src="../assets/images/th (1).jpg" alt="" height="70px" width="70px">
+                    </span>
+                    <h1 style="margin-left:10% ;">Online exam name</h1>
+                    <hr>
+                     
+                </div>
+             
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-3 col-md-3 col-lg-3 col-xs-3">
                 <h1>
-                    <div id="demo"></div>
+                   
                     <!--<span id="timer-minutes">00</span> :
                     <span id="timer-seconds">00</span> -->
 
                 </h1>
-            <!--<span>Time:&nbsp<span id="times"></span></span>-->
+                <!--<span>Time:&nbsp<span id="times"></span></span>-->
             </div>
 
-            <div class="col-sm-3 d-flex">
-                <b ><p class="mt-2">User Name Displayed here</p><br></br></b>
-                <b>User i'd</b>
-                <div class="m-2" style="height: 110px; width:100px;background-color: gray;"></div>
+            <div class="col-sm col-md col-lg col-xs mt-3" style="font-size: smaller;font-weight: 200;">
+                <div class="card border-warning mb-3" style="max-width: 20rem;">
+                    <div class="card-header text-center"><b> Exam name</b></div>
+                    <div class="card-body text-warning">
+                     
+                      <span class="card-text d-flex"> <h5>User Name Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius, mollitia.</h5> <img src="../assets/images/th.jpg" alt="" height="100px" width="100px">
+                    <br>
+                    
+                </span>
+                            <div id="demo" class="text-danger" style="margin-top: -5%;"><h4> Time left:</h4></div> 
+                    </div>
+                  </div>
+                
+                <!-- <div class="m-2" style="height: 110px; width:100px;background-color: gray;"></div> -->
             </div>
+                </div>
+                
+            </div>
+           
         </div>
     </div>
 
-    <div class="container" style="margin-top:2% ; font-size:small ;background-color: whitesmoke;">
+    <div class="container" style="margin-top:2% ; font-size:small ;background-color: #9ed3f8">
 
         <div class="row">
 
-            <div class="col-sm-8">
+            <div class="col-md-8 col-sm-8 col-lg-8">
                 <form action="">
-                    <div class="card">
-                        <div class="card-header">
-                            <div>
-                                <p><b>Questions :1</b> </p>
-                                <p id="uQuestion"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
-                                    est autem sint odit voluptatibus aperiam tenetur quia, debitis repudiandae magni.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card-body m-4">
-                            <div id="uOptions" class="pt-2 m-3">
-                                <div class="row">
-                                    <div class="col-sm-6 ">
-                                        <input type="radio" name="l1" id="l1" class="pt-2"></input>
-                                        <label for="l1">Lorem ipsum
-                                            dolor sit amet.</label><br></br>
-                                        <input type="radio" name="l2" id="l2"></input><label for="l2">Lorem, ipsum.</label>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="radio" name="l1" id="l1"></input><label for="l1">Lorem ipsum dolor sit
-                                            amet.</label><br></br>
-
-                                        <input type="radio" name="l1" id="l1"></input>
-                                        <label for="l1">Lorem ipsum dolor sit
-                                            amet.</label><br></br>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
+                    
+                    <p><b><span id="timer" style="margin-left: 80%;"></span></b> </p>
+                    
+                    <!-- Question append -->
+                    <div class="card" id="question_append">
+                        
                     </div>
-                    <div class="row d-flex" style="margin-top: 5%; font-size: small; ">
+
+                    <!-- option append -->
+                    <div class="card-body">
+                        <div class=" m-4" id="option_dynamic">
+                    </div>
+                    </div>
+                    
+
+                    <div class="row" style="margin-top: 5%; font-size: small; ">
                         <div class="col-sm-3">
-                            <button class="btn btn-secondary mt-2 p-2"> <i
+                            <button class="btn btn-secondary mt-2 p-2" id="save_previous"> <i
                                     class="fa-solid fa-angles-left"></i>&nbsp;Save and Previous</button>
                         </div>
                         <div class="col-sm-3">
-                            <button class="btn btn-danger mt-2 p-2" type="reset"><i class="fa-solid fa-ban"></i>
+                            <button class="btn btn-danger mt-2 p-2" type="reset" id="clear_response"><i
+                                    class="fa-solid fa-ban"></i>
                                 &nbsp;Clear response</button>
                         </div>
                         <div class="col-sm-3">
-                            <button class="btn btn-primary mt-2 p-2">Mark for Review &nbsp; <i
+                            <button class="btn btn-primary mt-2 p-2" id="mark_review">Mark for Review &nbsp; <i
                                     class="fa-solid fa-question"></i></button>
                         </div>
                         <div class="col-sm-3">
-                            <button type="submit" class="btn btn-warning m-2 p-2">Save and Next &nbsp;<i
+                            <button type="submit" class="btn btn-warning m-2 p-2" id="navigate">Save and Next &nbsp;<i
                                     class="fa-solid fa-angles-right"></i></button>
                         </div>
 
 
-
                     </div>
+
                 </form>
             </div>
-            <div class="col-sm-4">
+            <div class="col-lg-4 col-sm-4" style="margin-top: 2%;padding-bottom:2%">
                 <div class="card">
                     <div class="card-header">
-                        
+
                         <span>
-                            <i class="fa-solid fa-square-full" style="color:green"></i> &nbsp Answered 
-                            <i
-                                class="fa-solid fa-square-full" style="color:yellow"></i> &nbsp Not answered</span> <br></br>
-                        <span><i class="fa-solid fa-square-full" style="color:blue"></i> &nbsp Selected &nbsp;
-                            <i
-                                class="fa-solid fa-square-full" style="color:gray"></i> &nbsp Not visited</span>
+                            <i class="fa-solid fa-square-full" style="color:#007f00"></i> &nbsp Answered
+                            <i class="fa-solid fa-square-full" style="color:#48a2b8"></i> &nbsp Not answered</span>
+                        <br></br>
+                        <span>
+                            <i class="fa-solid fa-square-full" style="color:gray"></i> &nbsp Not visited</span>
 
                     </div>
                     <div class="card-body" id="moveButton">
-                        <div class="row">
-                            <div class="col-sm-4  ">
-                                <a href="#" >
-                                    <div class="col-md-3 m-2 questionSwitchDiv">
-                                        Q1
-                                    </div>
-                                </a>
-                                <a href="">
-                                    <div class="col-md-3 m-2 questionSwitchDiv" 
-                                        style=" ">
-                                        Q2
-                                    </div>
-                                </a>
-                                <a href="">
-                                    <div class="col-md-3 m-2 questionSwitchDiv" id="q_no"
-                                        style="background-color:rgb(174, 170, 170); ">
-                                        Q3
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-sm-4">
-                                <a href="">
-                                    <div class="col-md-3 m-2 questionSwitchDiv" id="q_no"
-                                        style="background-color: rgb(174, 170, 170); ">
-                                        Q4
-                                    </div>
-                                </a>
-                                <a href="">
-                                    <div class="col-md-3 m-2 questionSwitchDiv" id="q_no"
-                                        style="background-color:rgb(174, 170, 170); ">
-                                        Q5
-                                    </div>
-                                </a>
-                                <a href="">
-                                    <div class="col-md-3 m-2 questionSwitchDiv " id="q_no"
-                                        style="background-color: rgb(174, 170, 170);  ">
-                                        Q6
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-sm-4">
-                                <a href="">
-                                    <div class="col-md-3 m-2 questionSwitchDiv " id="q_no"
-                                        style="background-color: rgb(174, 170, 170);  ">
-                                        Q7
-                                    </div>
-                                </a>
-                                <a href="">
-                                    <div class="col-md-3 m-2 questionSwitchDiv" id="q_no"
-                                        style="background-color: rgb(174, 170, 170);  ">
-                                        Q8
-                                    </div>
-                                </a>
-                                <a href="">
-                                    <div class="col-md-3 m-2 questionSwitchDiv" id="q_no"
-                                        style="background-color: rgb(174, 170, 170);  ">
-                                        Q9
-                                    </div>
-                                </a>
-                            </div>
-                            
+                        <div class="row" id='nav_question'>
+
+
                         </div>
-
-                            
-                            
-                           
-                            
-
-
-                       
                         <div class="row text- " style="margin-top: 10%; margin-left:5%;width:50%;">
                             <button class="btn btn-success mt-2 p-2" data-bs-target="#testSummary"
-                                data-bs-toggle="modal" >Submit</button>
+                                data-bs-toggle="modal">Submit</button>
                         </div>
 
                     </div>
                 </div>
 
             </div>
+        </div>
 
-            <!-- //  Test Summary modal box
+    </div>
+
+
+    <!-- //  Test Summary modal box
             //  Modal -->
 
-            <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                aria-labelledby="staticBackdropLabel" id="testSummary" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <h1 class="text-center">Test Summary</h1>
-                            <div class="row mt-3" style="background-color: white;">
-                                <div class="col-md-12 d-flex justify-content-around">
-                                    <div>
-                                        <h4>Questions attempted</h4>
-                                        <div class="progress blue">
-                                            <span class="progress-left ">
-                                                <span class="progress-bar "></span>
-                                            </span>
-                                            <span class="progress-right ">
-                                                <span class="progress-bar "></span>
-                                            </span>
-                                            <div class="progress-value">90%</div>
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <h4>Questions answered</h4>
-                                        <div class="progress blue">
-                                            <span class="progress-left ">
-                                                <span class="progress-bar "></span>
-                                            </span>
-                                            <span class="progress-right ">
-                                                <span class="progress-bar "></span>
-                                            </span>
-                                            <div class="progress-value">90%</div>
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <h4>Total time taken</h4>
-                                        <div class="progress blue">
-                                            <span class="progress-left ">
-                                                <span class="progress-bar "></span>
-                                            </span>
-                                            <span class="progress-right ">
-                                                <span class="progress-bar "></span>
-                                            </span>
-                                            <div class="progress-value">90%</div>
-                                        </div>
-                                    </div>
-
+    <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" id="testSummary" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h1 class="text-center">Test Summary</h1>
+                    <div class="row mt-3" style="background-color: white;">
+                        <div class="col-md-12 d-flex justify-content-around">
+                            <div>
+                                <h4>Questions attempted</h4>
+                                <div class="progress blue">
+                                    <span class="progress-left ">
+                                        <span class="progress-bar "></span>
+                                    </span>
+                                    <span class="progress-right ">
+                                        <span class="progress-bar "></span>
+                                    </span>
+                                    <div class="progress-value">90%</div>
                                 </div>
+                            </div>
 
+                            <div>
+                                <h4>Questions answered</h4>
+                                <div class="progress blue">
+                                    <span class="progress-left ">
+                                        <span class="progress-bar "></span>
+                                    </span>
+                                    <span class="progress-right ">
+                                        <span class="progress-bar "></span>
+                                    </span>
+                                    <div class="progress-value">90%</div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4>Total time taken</h4>
+                                <div class="progress blue">
+                                    <span class="progress-left ">
+                                        <span class="progress-bar "></span>
+                                    </span>
+                                    <span class="progress-right ">
+                                        <span class="progress-bar "></span>
+                                    </span>
+                                    <div class="progress-value">90%</div>
+                                </div>
                             </div>
 
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" id="showResult"><a></a>See Result</button>
-                        </div>
+
                     </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="showResult"><a></a>See Result</button>
                 </div>
             </div>
         </div>
-        </div>
-        <script src="./questionpage.js"></script>
+    </div>
+    </div>
+    </div>
+    <script src="./questionpage.js"></script>
 </body>
+<script>
+    var temp_id = '';
+
+    for (let i = 1; i < Question_data.length; i++) {
+        // console.log(`${Question_data[i].qid - 1}`);
+        var id = `${Question_data[i].qid - 1}`;
+        document.getElementById('nav_question').innerHTML += `
+    
+    <div class=" col-md-3 m-2 text-center" onclick="NextQuestion(${Question_data[i].qid - 2})"  class="opt" id="navigate${Question_data[i].qid}"
+                            style="background-color: rgb(174, 170, 170);  width:15%  ; border:1px solid black;text-align-center;">
+                            <p>${Question_data[i].qid - 1}</p>
+                        </div>
+                     
+    
+    `
+
+
+    }
+
+
+
+    function option(j) {
+
+
+        if (document.getElementById(j + "optn").checked == true) {
+
+            document.getElementById("navigate" + (parseInt(temp_id) + 1)).setAttribute("style", "background-color: #009900; width:15% ; border:1px solid black;text-align-center;border-radius:10%;");
+
+        }
+
+
+
+    }
+
+
+
+
+    document.getElementById('question_append').innerHTML = `
+ <div class="card-header">
+                   <div ><p><b>Questions :${Question_data[0].qid}</b> </p>
+                       <p id="uQuestioN" class="no-box">${Question_data[0].question}</p>
+                   </div>
+               </div>
+              
+ `
+
+ 
+        for (let j = 0; j < Question_data[0].options.length; j++) {
+
+            optn_id = Question_data[0].options[j];
+            document.getElementById("option_dynamic").innerHTML +=
+                `<input type="${Question_data[0].qtype}" name="l2" onchange="option(${j})" id="${j + "optn"}" ><label for="l2">${Question_data[0].options[j]}</label><br>
+`
+
+        }
+ 
+
+
+
+
+    function NextQuestion(a) {
+
+       
+
+        temp_id = Question_data[a].qid;
+
+
+        document.getElementById('question_append').innerHTML = `
+ <div class="card-header">
+                   <div ><p><b>Questions :${Question_data[a].qid}</b> </p>
+                       <p id="uQuestioN" class="no-box">${Question_data[a].question}</p>
+                   </div>
+               </div>
+              
+ `
+
+
+ if(sec!=0){
+            $("#save_previous").prop('disabled',true);
+            $("#mark_review").prop('disabled',true);
+        
+        }
+        else{
+            $("#save_previous").prop('disabled',false);
+            $("#mark_review").prop('disabled',false);
+        }
+        var sec = 60;
+        var time = setInterval(myTimer, 1000);
+
+        function myTimer() {
+            document.getElementById('timer').innerHTML = sec + "sec left";
+            sec--;
+            if (sec == -1) {
+                clearInterval(time);
+                alert("Time out!! :(");
+            }
+        }
+        
+        document.getElementById("navigate" + (parseInt(temp_id) + 1)).setAttribute("style", "background-color: #48a2b8;");
+        $("#option_dynamic").empty();
+        for (let j = 0; j < Question_data[a].options.length; j++) {
+
+            optn_id = Question_data[a].options[j];
+            document.getElementById("option_dynamic").innerHTML +=
+                `<input type="${Question_data[a].qtype}" name="l2" onchange="option(${j})" id="${j + "optn"}" ><label for="l2">${Question_data[a].options[j]}</label><br>
+`
+
+
+
+        }
+
+
+
+    }
+
+
+
+</script>
 
 </html>
