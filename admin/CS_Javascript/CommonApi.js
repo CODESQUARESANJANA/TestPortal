@@ -9,7 +9,7 @@ for (let i = 0; i < cokiesArray.length; i++) {
 function GetCategory() {
   var xhttp = new XMLHttpRequest();
   xhttp.open("POST", "http://192.168.1.28/EXAMPANEL/admin/get_category", true);
-  xhttp.setRequestHeader("Authorization",`${ cookie.token}`);
+  xhttp.setRequestHeader("Authorization", `${cookie.token}`);
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       var category = JSON.parse(this.responseText);
@@ -60,6 +60,7 @@ const CreateExam = () => {
   let test_instruction = document.getElementById("exam_instruction").value;
   let test_start_time = document.getElementById("exam_start_time").value;
   let test_end_time = document.getElementById("exam_end_time").value;
+  let test_duration = document.getElementById("exam_duration").value
   if (test_name === "") {
     alert("Please enter exam name...");
   } else if (test_code === "") {
@@ -72,6 +73,8 @@ const CreateExam = () => {
     alert("Please select start time...");
   } else if (test_end_time === "") {
     alert("Please select end time...");
+  } else if (test_duration === "") {
+    alert("Please enter exam duration")
   } else {
     const exam_data = {
       vTestName: test_name,
@@ -80,11 +83,12 @@ const CreateExam = () => {
       dStartTestDate: test_start_time,
       dEndTestDate: test_end_time,
       vTestCode: test_code,
+      iTestDuration: test_duration
     };
     let data = JSON.stringify(exam_data);
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST", "http://192.168.1.28/EXAMPANEL/admin/addtest", true);
-    xhttp.setRequestHeader("Authorization",`${ cookie.token}`);
+    xhttp.setRequestHeader("Authorization", `${cookie.token}`);
 
     xhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
@@ -99,7 +103,7 @@ const CreateExam = () => {
 const GetExamDetails = () => {
   var xhttp = new XMLHttpRequest();
   xhttp.open("POST", "http://192.168.1.28/EXAMPANEL/admin/getalltest", true);
-  xhttp.setRequestHeader("Authorization",`${ cookie.token}`);
+  xhttp.setRequestHeader("Authorization", `${cookie.token}`);
 
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -128,59 +132,59 @@ if (pathname === "/admin/exam-details.html") {
 
 
 const addQuestion = () => {
-    var enter_description = document.getElementById("summernote").value;
-  
-    var enter_category = document.getElementById("getCategory").value;
-    var question_type = document.getElementById("question_type").value;
-    // var enter_options = document.getElementById('').value ;
-    var question_marks = document.getElementById("enter_marks").value;
-  
-    option_value = [];
-    correct_answer = [];
-    for (let i = 0; i < 4; i++) {
-      option = document.getElementById(`${i}`).value;
-  
-      btn_on = document.getElementById(`k${i}`).checked;
-  
-      if (btn_on == true) {
-        correct_answer.push(option);
-      }
-      option_value.push(option);
+  var enter_description = document.getElementById("summernote").value;
+
+  var enter_category = document.getElementById("getCategory").value;
+  var question_type = document.getElementById("question_type").value;
+  // var enter_options = document.getElementById('').value ;
+  var question_marks = document.getElementById("enter_marks").value;
+
+  option_value = [];
+  correct_answer = [];
+  for (let i = 0; i < 4; i++) {
+    option = document.getElementById(`${i}`).value;
+
+    btn_on = document.getElementById(`k${i}`).checked;
+
+    if (btn_on == true) {
+      correct_answer.push(option);
     }
-  console.log("val",option_value)
-  console.log("checked",correct_answer)
-  
+    option_value.push(option);
+  }
+  console.log("val", option_value)
+  console.log("checked", correct_answer)
+
   option_value_update = option_value.toString();
   correct_answer_update = correct_answer.toString();
-  console.log('new ANSWER IN STRING',option_value_update)
-  
-    const add = {
-      tQuestionText: enter_description,
-      eQuestionType: question_type,
-      iCategoryId: enter_category,
-      vMarks: question_marks,
-      vOption: option_value_update,
-      vAnswer: correct_answer_update,
-    };
-  let data =JSON.stringify(add)
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "http://192.168.1.28/EXAMPANEL/admin/addQuestion", true);
-    xhttp.setRequestHeader("Authorization",`${ cookie.token}`);
-    //    xhttp.setRequestHeader("Access-Control-Allow-Origin","*")
-    xhttp.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-      } 
-      
-      window.location.href = "http://127.0.0.1:444/add-question.html"
-  
-  
-    };
-  
-    xhttp.send(data);
-    // window.location.reload();
+  console.log('new ANSWER IN STRING', option_value_update)
+
+  const add = {
+    tQuestionText: enter_description,
+    eQuestionType: question_type,
+    iCategoryId: enter_category,
+    vMarks: question_marks,
+    vOption: option_value_update,
+    vAnswer: correct_answer_update,
+  };
+  let data = JSON.stringify(add)
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("POST", "http://192.168.1.28/EXAMPANEL/admin/addQuestion", true);
+  xhttp.setRequestHeader("Authorization", `${cookie.token}`);
+  //    xhttp.setRequestHeader("Access-Control-Allow-Origin","*")
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+    }
+
+    window.location.href = "http://127.0.0.1:444/add-question.html"
+
+
   };
 
-  var pathname = window.location.pathname.toString();
+  xhttp.send(data);
+  // window.location.reload();
+};
+
+var pathname = window.location.pathname.toString();
 console.log("pathname-", pathname);
 
 function GetAllQuestions() {
@@ -190,17 +194,16 @@ function GetAllQuestions() {
     url: "http://192.168.1.28/EXAMPANEL/admin/getQuestion",
     type: "GET",
     headers: {
-      "Authorization" :
-   "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2RhdGEiOnsiaVVzZXJJZCI6IjEiLCJ2Rmlyc3ROYW1lIjoiQWFzaHV0b3NoIiwidkxhc3ROYW1lIjoiTmFtZGVvIiwiZUdlbmRlciI6Im1hbGUiLCJ2RW1haWwiOiJhYXNodXRvc2gubmFtZGVvQGNvZGVzcXVhcmV0ZWNoLmNvbSIsInZQYXNzd29yZCI6ImUxMGFkYzM5NDliYTU5YWJiZTU2ZTA1N2YyMGY4ODNlIiwidlBob25lTm8iOiI3MDQ5MjQ2NDIwIiwidlByb2ZpbGVQaWMiOm51bGwsImlBZGRlZEJ5IjoiMCIsImlVcGRhdGVkQnkiOiIwIiwiZHRBZGRlZERhdGUiOiIyMDIyLTA3LTIxIDE2OjEyOjU4IiwiZHRVcGRhdGVkRGF0ZSI6bnVsbCwiZVN0YXR1cyI6IkFjdGl2ZSJ9LCJ1c2VyX3R5cGUiOiJhZG1pbiIsIkFQSV9USU1FIjoxNjU4ODk1NjIyfQ.IQp2w-DB3VBNDjgB0KnL1CcIVaD5e4eJJyYZ4euw4zw"
+      "Authorization":
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2RhdGEiOnsiaVVzZXJJZCI6IjEiLCJ2Rmlyc3ROYW1lIjoiQWFzaHV0b3NoIiwidkxhc3ROYW1lIjoiTmFtZGVvIiwiZUdlbmRlciI6Im1hbGUiLCJ2RW1haWwiOiJhYXNodXRvc2gubmFtZGVvQGNvZGVzcXVhcmV0ZWNoLmNvbSIsInZQYXNzd29yZCI6ImUxMGFkYzM5NDliYTU5YWJiZTU2ZTA1N2YyMGY4ODNlIiwidlBob25lTm8iOiI3MDQ5MjQ2NDIwIiwidlByb2ZpbGVQaWMiOm51bGwsImlBZGRlZEJ5IjoiMCIsImlVcGRhdGVkQnkiOiIwIiwiZHRBZGRlZERhdGUiOiIyMDIyLTA3LTIxIDE2OjEyOjU4IiwiZHRVcGRhdGVkRGF0ZSI6bnVsbCwiZVN0YXR1cyI6IkFjdGl2ZSJ9LCJ1c2VyX3R5cGUiOiJhZG1pbiIsIkFQSV9USU1FIjoxNjU4ODk1NjIyfQ.IQp2w-DB3VBNDjgB0KnL1CcIVaD5e4eJJyYZ4euw4zw"
     },
-    data: {} ,   
-    success: function(data)
-    {
+    data: {},
+    success: function (data) {
       console.log(data);
-      if (data.success==true) {
-       data.data.forEach((element)=>{
-        //console.log("dfsd",element)
-        document.getElementById("question_data1").innerHTML += `<tr>
+      if (data.success == true) {
+        data.data.forEach((element) => {
+          //console.log("dfsd",element)
+          document.getElementById("question_data1").innerHTML += `<tr>
         <td>
             ${element.iQuestionId}
         </td>
@@ -236,7 +239,7 @@ function GetAllQuestions() {
 
         </td>
     </tr>`
-       })          
+        })
       }
     }
   })
@@ -245,23 +248,23 @@ function GetAllQuestions() {
 
 
 const AddQuestionToTest = () => {
- 
+
 
 
   var xhttp = new XMLHttpRequest();
   xhttp.open("Get", "http://192.168.1.28/EXAMPANEL/admin/getQuestion", true);
-  xhttp.setRequestHeader("Authorization",`${cookie.token}`);
+  xhttp.setRequestHeader("Authorization", `${cookie.token}`);
   // xhttp.send({})
 
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       var response = JSON.parse(this.responseText);
       console.log("res-", response);
-      response.data.forEach((element,index) => {
+      response.data.forEach((element, index) => {
         // console.log(element,"element")
         document.getElementById("exam_question_data").innerHTML += `
                 <tr style="font-size: 14px;">
-                <td scope="row">${index+1}</td>
+                <td scope="row">${index + 1}</td>
                 <td><input value="${element.iQuestionId}" type="checkbox" name=selectServices onchange="questionPicker(value)"/></td>
                 <td>${element.tQuestionText}</td>
                 <td>${element.vCategoryName}</td>
@@ -278,18 +281,18 @@ if (pathname === "/admin/exam-question.html") {
 }
 
 
-  const submitHandler = () =>{
+const submitHandler = () => {
 
-    const urlSearchParams = new URLSearchParams(window.location.search);
-    const Testid = urlSearchParams.get("testId");
-  
-var questionArr =[]
-      $('#services').val($('input[name=selectServices]:checked').map(function () {
-        questionArr.push(this.value)
-      }).get());
-   let questIds = questionArr.toString()
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  const Testid = urlSearchParams.get("testId");
 
-  if (questionArr.toString()  === "") {
+  var questionArr = []
+  $('#services').val($('input[name=selectServices]:checked').map(function () {
+    questionArr.push(this.value)
+  }).get());
+  let questIds = questionArr.toString()
+
+  if (questionArr.toString() === "") {
     alert("Please select end time...");
   } else {
     const exam_data = {
@@ -299,7 +302,7 @@ var questionArr =[]
     let data = JSON.stringify(exam_data);
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST", "http://192.168.1.28/EXAMPANEL/admin/addtestquestion", true);
-    xhttp.setRequestHeader("Authorization",`${ cookie.token}`);
+    xhttp.setRequestHeader("Authorization", `${cookie.token}`);
 
     xhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
@@ -310,7 +313,7 @@ var questionArr =[]
     xhttp.send(data);
   }
 
-  }
+}
 
 
 
@@ -327,20 +330,19 @@ console.log("pathname-", pathname);
 
 function DeleteQuestions() {
   console.log("cmjk")
-  $("#delete_Que").click(function(){
+  $("#delete_Que").click(function () {
     $.ajax({
-  url: "http://192.168.1.28/EXAMPANEL/admin/deleteQuestion",
-  type: "POST",
-  headers: {
-    "Authorization" : `${cookie.token}`
-  },
-  data: {} ,   
-  success: function(data)
-  {
-    console.log(data);
-   
-  }
-})
+      url: "http://192.168.1.28/EXAMPANEL/admin/deleteQuestion",
+      type: "POST",
+      headers: {
+        "Authorization": `${cookie.token}`
+      },
+      data: {},
+      success: function (data) {
+        console.log(data);
+
+      }
+    })
   })
 
 }
