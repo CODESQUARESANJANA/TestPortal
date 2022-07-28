@@ -258,9 +258,7 @@ const AddQuestionToTest = () => {
         document.getElementById("exam_question_data").innerHTML += `
                 <tr style="font-size: 14px;">
                 <td scope="row">${index + 1}</td>
-                <td><input value="${
-                  element.iQuestionId
-                }" type="checkbox" name=selectServices onchange="questionPicker(value)"/></td>
+                <td><input value="${element.iQuestionId}" type="checkbox" name=selectServices onchange="questionPicker(value)"/></td>
                 <td>${element.tQuestionText}</td>
                 <td>${element.vCategoryName}</td>
                 <td style="text-align: center;">${element.eQuestionType}</td>
