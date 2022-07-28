@@ -187,8 +187,8 @@ function GetAllQuestions() {
     url: "http://192.168.1.28/EXAMPANEL/admin/getQuestion",
     type: "GET",
     headers: {
-      Authorization:
-        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2RhdGEiOnsiaVVzZXJJZCI6IjEiLCJ2Rmlyc3ROYW1lIjoiQWFzaHV0b3NoIiwidkxhc3ROYW1lIjoiTmFtZGVvIiwiZUdlbmRlciI6Im1hbGUiLCJ2RW1haWwiOiJhYXNodXRvc2gubmFtZGVvQGNvZGVzcXVhcmV0ZWNoLmNvbSIsInZQYXNzd29yZCI6ImUxMGFkYzM5NDliYTU5YWJiZTU2ZTA1N2YyMGY4ODNlIiwidlBob25lTm8iOiI3MDQ5MjQ2NDIwIiwidlByb2ZpbGVQaWMiOm51bGwsImlBZGRlZEJ5IjoiMCIsImlVcGRhdGVkQnkiOiIwIiwiZHRBZGRlZERhdGUiOiIyMDIyLTA3LTIxIDE2OjEyOjU4IiwiZHRVcGRhdGVkRGF0ZSI6bnVsbCwiZVN0YXR1cyI6IkFjdGl2ZSJ9LCJ1c2VyX3R5cGUiOiJhZG1pbiIsIkFQSV9USU1FIjoxNjU4ODk1NjIyfQ.IQp2w-DB3VBNDjgB0KnL1CcIVaD5e4eJJyYZ4euw4zw",
+      "Authorization":`${cookie.token}`,
+        
     },
     data: {},
     success: function (data) {
@@ -231,6 +231,7 @@ function GetAllQuestions() {
             </button>
 
         </td>
+        <td></td>
     </tr>`;
         });
       }
