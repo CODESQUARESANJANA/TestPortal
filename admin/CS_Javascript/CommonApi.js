@@ -259,7 +259,7 @@ function GetAllQuestions() {
             </button>
 
             <button class="btn btn-warning" title="Edit" href='"
-                onclick="window.location.href='/admin/add-question.html'">
+                onclick="window.location.href='/admin/update-question?questId=${element.iQuestionId}.html'">
                 Edit
             </button>
 
