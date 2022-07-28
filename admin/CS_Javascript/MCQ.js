@@ -65,8 +65,9 @@ function AddOpt(){
         </div>`
 
     }
+  }
 
-    }
+    
 
 
     // if(x=="True&False"){
@@ -111,5 +112,3 @@ function AddOpt(){
     
 
 }
-
-
