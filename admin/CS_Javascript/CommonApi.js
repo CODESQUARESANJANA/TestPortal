@@ -170,7 +170,7 @@ const addQuestion = () => {
     if (this.readyState == 4 && this.status == 200) {
     }
 
-    window.location.href = "http://127.0.0.1:444/add-question.html";
+    window.location.pathname = "/admin/question-details.html";
   };
 
   xhttp.send(data);
@@ -187,16 +187,19 @@ function GetAllQuestions() {
     url: "http://192.168.1.28/EXAMPANEL/admin/getQuestion",
     type: "GET",
     headers: {
+
       "Authorization":`${cookie.token}`,
         
-    },
-    data: {},
+    }, data: {},
     success: function (data) {
       console.log(data);
       if (data.success == true) {
-        data.data.forEach((element) => {
+        data.data.forEach((element,index) => {
           //console.log("dfsd",element)
           document.getElementById("question_data1").innerHTML += `<tr>
+          <td>
+          ${index+1}
+      </td>
         <td>
             ${element.iQuestionId}
         </td>
@@ -231,7 +234,7 @@ function GetAllQuestions() {
             </button>
 
         </td>
-        <td></td>
+        
     </tr>`;
         });
       }
