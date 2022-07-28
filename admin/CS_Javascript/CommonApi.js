@@ -187,15 +187,19 @@ function GetAllQuestions() {
     url: "http://192.168.1.28/EXAMPANEL/admin/getQuestion",
     type: "GET",
     headers: {
-      Authorization:
-`${cookie.token}`    },
-    data: {},
+
+      "Authorization":`${cookie.token}`,
+        
+    }, data: {},
     success: function (data) {
       console.log(data);
       if (data.success == true) {
-        data.data.forEach((element) => {
+        data.data.forEach((element,index) => {
           //console.log("dfsd",element)
           document.getElementById("question_data1").innerHTML += `<tr>
+          <td>
+          ${index+1}
+      </td>
         <td>
             ${element.iQuestionId}
         </td>
@@ -230,6 +234,7 @@ function GetAllQuestions() {
             </button>
 
         </td>
+        
     </tr>`;
         });
       }
