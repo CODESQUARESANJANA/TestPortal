@@ -105,7 +105,7 @@
     })
 
     const togglePassword = document.querySelector("#togglePassword");
-    const password = document.querySelector("#password", "#password2");
+    const password = document.querySelector("#passWord_field");
     togglePassword.addEventListener("click", function () {
       // toggle the type attribute
       const type = password.getAttribute("type") === "password" ? "text" : "password";
@@ -132,7 +132,7 @@
           document.cookie = "token=" + response.token;
           if (response.success == true) {
            if (response.user_type == "user") {
-             window.location.href = "./user/html/description.html";
+             window.location.href = "./user/html/ask-code.html";
            } else {
             window.location.href = './admin/index.html';
            }

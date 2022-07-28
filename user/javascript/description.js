@@ -21,18 +21,35 @@ data:{"vTestCode" : "MS100"},
         console.log(response);
         
         if (response.success == true) {
+          var x= response.data
+          // for(let i=0; i<x.length;i++){
+          //   console.log(x[i]);
+            
+          
+          document.getElementById("desp").innerHTML = x[0].tTestDescription;
+          document.getElementById("testname").innerHTML = x[0].vTestName;
+          document.getElementById("testcode").innerHTML = x[0].vTestCode;
+          document.getElementById("totalques").innerHTML = x[0].totalQuestions;
+          document.getElementById("totaltime").innerHTML = x[0].iTestDuration;
+          document.getElementById("instructions").innerHTML = x[0].tTestInstruction;
+          }
         
-        }
         else {
           alert(response.message);
         }
+        
 
       },
       error: function (response) {
         console.log(response)
 
       }
+      
     });   
+    // f
+    // 
+   
+     
    
 })
      
