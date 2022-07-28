@@ -5,7 +5,7 @@ function AddOpt(){
     console.log(x);
 
     if(x=="radio"){
-      for(let i=0;i<4;i++){
+    
         document.getElementById("Multiple_Options").innerHTML += `<div style="font-weight:bold">Options</div>
         <div class="d-flex">
           <div style="padding:2%">
@@ -19,7 +19,7 @@ function AddOpt(){
           
         </div>`
         // document.getElementById('question_type').disabled = true;
-    }
+    
   }
 
     else if(x=="check"){

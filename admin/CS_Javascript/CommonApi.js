@@ -138,7 +138,7 @@ const addQuestion = () => {
   option_value = [];
   correct_answer = [];
   if (x == "radio" || x == "check") {
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 10; i++) {
       option = document.getElementById(`${i}`).value;
 
       btn_on = document.getElementById(`k${i}`).checked;
@@ -146,7 +146,9 @@ const addQuestion = () => {
       if (btn_on == true) {
         correct_answer.push(option);
       }
+      if(option != ''){
       option_value.push(option);
+    }
       option_value_update = option_value.toString();
       correct_answer_update = correct_answer.toString();
       console.log("new ANSWER IN STRING", option_value_update);
