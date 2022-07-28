@@ -61,7 +61,6 @@ const CreateExam = () => {
   let test_instruction = document.getElementById("exam_instruction").value;
   let test_start_time = document.getElementById("exam_start_time").value;
   let test_end_time = document.getElementById("exam_end_time").value;
-  let test_duration = document.getElementById("exam_duration").value
   if (test_name === "") {
     alert("Please enter exam name...");
   } else if (test_code === "") {
@@ -74,8 +73,6 @@ const CreateExam = () => {
     alert("Please select start time...");
   } else if (test_end_time === "") {
     alert("Please select end time...");
-  } else if (test_duration === "") {
-    alert("Please enter exam duration")
   } else {
     const exam_data = {
       vTestName: test_name,
@@ -84,7 +81,6 @@ const CreateExam = () => {
       dStartTestDate: test_start_time,
       dEndTestDate: test_end_time,
       vTestCode: test_code,
-      iTestDuration: test_duration
     };
     let data = JSON.stringify(exam_data);
     var xhttp = new XMLHttpRequest();
@@ -130,8 +126,6 @@ if (pathname === "/admin/exam-details.html") {
   GetExamDetails();
 }
 
-
-
 const addQuestion = () => {
   var enter_description = document.getElementById("summernote").value;
 
@@ -152,12 +146,12 @@ const addQuestion = () => {
     }
     option_value.push(option);
   }
-  console.log("val", option_value)
-  console.log("checked", correct_answer)
+  console.log("val", option_value);
+  console.log("checked", correct_answer);
 
   option_value_update = option_value.toString();
   correct_answer_update = correct_answer.toString();
-  console.log('new ANSWER IN STRING', option_value_update)
+  console.log("new ANSWER IN STRING", option_value_update);
 
   const add = {
     tQuestionText: enter_description,
@@ -167,7 +161,7 @@ const addQuestion = () => {
     vOption: option_value_update,
     vAnswer: correct_answer_update,
   };
-  let data = JSON.stringify(add)
+  let data = JSON.stringify(add);
   var xhttp = new XMLHttpRequest();
   xhttp.open("POST", "http://192.168.1.28/EXAMPANEL/admin/addQuestion", true);
   xhttp.setRequestHeader("Authorization", `${cookie.token}`);
@@ -176,9 +170,7 @@ const addQuestion = () => {
     if (this.readyState == 4 && this.status == 200) {
     }
 
-    window.location.href = "http://127.0.0.1:444/add-question.html"
-
-
+    window.location.href = "http://127.0.0.1:444/add-question.html";
   };
 
   xhttp.send(data);
@@ -189,14 +181,14 @@ var pathname = window.location.pathname.toString();
 console.log("pathname-", pathname);
 
 function GetAllQuestions() {
-  console.log("fggj")
+  console.log("fggj");
 
   $.ajax({
     url: "http://192.168.1.28/EXAMPANEL/admin/getQuestion",
     type: "GET",
     headers: {
-      "Authorization":
-        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2RhdGEiOnsiaVVzZXJJZCI6IjEiLCJ2Rmlyc3ROYW1lIjoiQWFzaHV0b3NoIiwidkxhc3ROYW1lIjoiTmFtZGVvIiwiZUdlbmRlciI6Im1hbGUiLCJ2RW1haWwiOiJhYXNodXRvc2gubmFtZGVvQGNvZGVzcXVhcmV0ZWNoLmNvbSIsInZQYXNzd29yZCI6ImUxMGFkYzM5NDliYTU5YWJiZTU2ZTA1N2YyMGY4ODNlIiwidlBob25lTm8iOiI3MDQ5MjQ2NDIwIiwidlByb2ZpbGVQaWMiOm51bGwsImlBZGRlZEJ5IjoiMCIsImlVcGRhdGVkQnkiOiIwIiwiZHRBZGRlZERhdGUiOiIyMDIyLTA3LTIxIDE2OjEyOjU4IiwiZHRVcGRhdGVkRGF0ZSI6bnVsbCwiZVN0YXR1cyI6IkFjdGl2ZSJ9LCJ1c2VyX3R5cGUiOiJhZG1pbiIsIkFQSV9USU1FIjoxNjU4ODk1NjIyfQ.IQp2w-DB3VBNDjgB0KnL1CcIVaD5e4eJJyYZ4euw4zw"
+      Authorization:
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2RhdGEiOnsiaVVzZXJJZCI6IjEiLCJ2Rmlyc3ROYW1lIjoiQWFzaHV0b3NoIiwidkxhc3ROYW1lIjoiTmFtZGVvIiwiZUdlbmRlciI6Im1hbGUiLCJ2RW1haWwiOiJhYXNodXRvc2gubmFtZGVvQGNvZGVzcXVhcmV0ZWNoLmNvbSIsInZQYXNzd29yZCI6ImUxMGFkYzM5NDliYTU5YWJiZTU2ZTA1N2YyMGY4ODNlIiwidlBob25lTm8iOiI3MDQ5MjQ2NDIwIiwidlByb2ZpbGVQaWMiOm51bGwsImlBZGRlZEJ5IjoiMCIsImlVcGRhdGVkQnkiOiIwIiwiZHRBZGRlZERhdGUiOiIyMDIyLTA3LTIxIDE2OjEyOjU4IiwiZHRVcGRhdGVkRGF0ZSI6bnVsbCwiZVN0YXR1cyI6IkFjdGl2ZSJ9LCJ1c2VyX3R5cGUiOiJhZG1pbiIsIkFQSV9USU1FIjoxNjU4ODk1NjIyfQ.IQp2w-DB3VBNDjgB0KnL1CcIVaD5e4eJJyYZ4euw4zw",
     },
     data: {},
     success: function (data) {
@@ -233,25 +225,21 @@ function GetAllQuestions() {
                 Edit
             </button>
 
-            <button class="btn btn-danger" id="delete_Que" title="Edit" href=""
+            <button class="btn btn-danger" id="delete_Que" onclick="DeleteQuestions(${element.iQuestionId})" title="Edit" href=""
                 onclick="window.location.href='">
                 Delete
             </button>
 
         </td>
-    </tr>`
-        })
+    </tr>`;
+        });
       }
-    }
-  })
+    },
+  });
 }
 // GetCategory();
 
-
 const AddQuestionToTest = () => {
-
-
-
   var xhttp = new XMLHttpRequest();
   xhttp.open("Get", "http://192.168.1.28/EXAMPANEL/admin/getQuestion", true);
   xhttp.setRequestHeader("Authorization", `${cookie.token}`);
@@ -266,7 +254,9 @@ const AddQuestionToTest = () => {
         document.getElementById("exam_question_data").innerHTML += `
                 <tr style="font-size: 14px;">
                 <td scope="row">${index + 1}</td>
-                <td><input value="${element.iQuestionId}" type="checkbox" name=selectServices onchange="questionPicker(value)"/></td>
+                <td><input value="${
+                  element.iQuestionId
+                }" type="checkbox" name=selectServices onchange="questionPicker(value)"/></td>
                 <td>${element.tQuestionText}</td>
                 <td>${element.vCategoryName}</td>
                 <td style="text-align: center;">${element.eQuestionType}</td>
@@ -275,26 +265,28 @@ const AddQuestionToTest = () => {
     }
   };
   xhttp.send();
-
-}
+};
 if (pathname === "/admin/exam-question.html") {
   AddQuestionToTest();
 }
 
-
 const submitHandler = () => {
-
   const urlSearchParams = new URLSearchParams(window.location.search);
   const Testid = urlSearchParams.get("testId");
 
-  var questionArr = []
-  $('#services').val($('input[name=selectServices]:checked').map(function () {
-    questionArr.push(this.value)
-  }).get());
-  let questIds = questionArr.toString()
+  var questionArr = [];
+  $("#services").val(
+    $("input[name=selectServices]:checked")
+      .map(function () {
+        questionArr.push(this.value);
+      })
+      .get()
+  );
+  let questIds = questionArr.toString();
 
-  if (questionArr.toString() === "") {
-    alert("Please select end time...");
+
+  if (questionArr.toString()  === "") {
+    alert("Please Select Questions First");
   } else {
     const exam_data = {
       iTestId: Testid,
@@ -302,7 +294,11 @@ const submitHandler = () => {
     };
     let data = JSON.stringify(exam_data);
     var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "http://192.168.1.28/EXAMPANEL/admin/addtestquestion", true);
+    xhttp.open(
+      "POST",
+      "http://192.168.1.28/EXAMPANEL/admin/addtestquestion",
+      true
+    );
     xhttp.setRequestHeader("Authorization", `${cookie.token}`);
 
     xhttp.onreadystatechange = function () {
@@ -313,41 +309,33 @@ const submitHandler = () => {
     };
     xhttp.send(data);
   }
-
-}
-
-
-
-
-
+};
 
 GetAllQuestions();
-
 
 //Delete Questions from Question box//
 
 var pathname = window.location.pathname.toString();
 console.log("pathname-", pathname);
 
-function DeleteQuestions() {
-  console.log("cmjk")
-  $("#delete_Que").click(function () {
-    $.ajax({
-      url: "http://192.168.1.28/EXAMPANEL/admin/deleteQuestion",
-      type: "POST",
-      headers: {
-        "Authorization": `${cookie.token}`
-      },
-      data: {},
-      success: function (data) {
-        console.log(data);
-
-      }
-    })
-  })
-
+function DeleteQuestions(id) {
+  $.ajax({
+    url: "http://192.168.1.28/EXAMPANEL/admin/deleteQuestion",
+    type: "POST",
+    headers: {
+      "Authorization": `${cookie.token}`,
+      
+    },
+    
+    data: { "iQuestionId": id },
+    success: function (data) {
+      console.log(data);
+     
+    },
+    error: function (err) {
+      console.log("Fs", err);
+      console.log("cookie",cookie.token);
+    }
+    
+  });
 }
-
-
-DeleteQuestions();
-
