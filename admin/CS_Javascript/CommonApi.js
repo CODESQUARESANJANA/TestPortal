@@ -22,8 +22,9 @@ function GetCategory() {
           <td>
             <button
               class="btn btn-warning btn-sm"
-              onclick="window.location.href='set-exam.html'"
-            >
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              >
               Edit
             </button>
             <button
